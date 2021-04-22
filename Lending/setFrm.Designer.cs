@@ -31,20 +31,20 @@ namespace Lending
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(setFrm));
             this.paneMain = new System.Windows.Forms.Panel();
-            this.btnTest = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.tBPath = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnFoldPath = new System.Windows.Forms.Button();
-            this.pBLogo = new System.Windows.Forms.PictureBox();
+            this.cBServer = new System.Windows.Forms.ComboBox();
             this.chkSQL = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tBPass = new System.Windows.Forms.TextBox();
             this.tBUser = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.cBServer = new System.Windows.Forms.ComboBox();
+            this.btnFoldPath = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.tBPath = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnTest = new System.Windows.Forms.Button();
+            this.pBLogo = new System.Windows.Forms.PictureBox();
             this.paneMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pBLogo)).BeginInit();
             this.SuspendLayout();
@@ -64,7 +64,7 @@ namespace Lending
             this.paneMain.Controls.Add(this.panel1);
             this.paneMain.Controls.Add(this.tBPath);
             this.paneMain.Controls.Add(this.label4);
-            this.paneMain.Controls.Add(this.button1);
+            this.paneMain.Controls.Add(this.btnSave);
             this.paneMain.Controls.Add(this.btnTest);
             this.paneMain.Controls.Add(this.pBLogo);
             this.paneMain.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -73,86 +73,14 @@ namespace Lending
             this.paneMain.Size = new System.Drawing.Size(307, 383);
             this.paneMain.TabIndex = 0;
             // 
-            // btnTest
+            // cBServer
             // 
-            this.btnTest.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnTest.FlatAppearance.BorderColor = System.Drawing.Color.Blue;
-            this.btnTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTest.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTest.Location = new System.Drawing.Point(11, 343);
-            this.btnTest.Name = "btnTest";
-            this.btnTest.Size = new System.Drawing.Size(133, 29);
-            this.btnTest.TabIndex = 9;
-            this.btnTest.Text = "TEST CONNECTION";
-            this.btnTest.UseVisualStyleBackColor = true;
-            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
-            // 
-            // button1
-            // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(161, 343);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(133, 29);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "SAVE SETTINGS";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // tBPath
-            // 
-            this.tBPath.BackColor = System.Drawing.Color.White;
-            this.tBPath.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tBPath.ForeColor = System.Drawing.Color.Black;
-            this.tBPath.Location = new System.Drawing.Point(11, 145);
-            this.tBPath.Name = "tBPath";
-            this.tBPath.Size = new System.Drawing.Size(260, 23);
-            this.tBPath.TabIndex = 12;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Gray;
-            this.label4.Location = new System.Drawing.Point(7, 124);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(173, 18);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "Lending Report Folder:";
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Black;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Location = new System.Drawing.Point(11, 187);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(283, 3);
-            this.panel1.TabIndex = 13;
-            // 
-            // btnFoldPath
-            // 
-            this.btnFoldPath.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnFoldPath.FlatAppearance.BorderSize = 0;
-            this.btnFoldPath.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFoldPath.Image = global::Lending.Properties.Resources.Folder_Explorer_icon;
-            this.btnFoldPath.Location = new System.Drawing.Point(277, 144);
-            this.btnFoldPath.Name = "btnFoldPath";
-            this.btnFoldPath.Size = new System.Drawing.Size(25, 25);
-            this.btnFoldPath.TabIndex = 14;
-            this.btnFoldPath.UseVisualStyleBackColor = true;
-            this.btnFoldPath.Click += new System.EventHandler(this.btnFoldPath_Click);
-            // 
-            // pBLogo
-            // 
-            this.pBLogo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pBLogo.Image = global::Lending.Properties.Resources.Joker_Wallpaper_1;
-            this.pBLogo.Location = new System.Drawing.Point(11, 18);
-            this.pBLogo.Name = "pBLogo";
-            this.pBLogo.Size = new System.Drawing.Size(283, 68);
-            this.pBLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pBLogo.TabIndex = 0;
-            this.pBLogo.TabStop = false;
+            this.cBServer.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cBServer.FormattingEnabled = true;
+            this.cBServer.Location = new System.Drawing.Point(94, 214);
+            this.cBServer.Name = "cBServer";
+            this.cBServer.Size = new System.Drawing.Size(186, 25);
+            this.cBServer.TabIndex = 25;
             // 
             // chkSQL
             // 
@@ -222,14 +150,87 @@ namespace Lending
             this.label1.TabIndex = 17;
             this.label1.Text = "Server:";
             // 
-            // cBServer
+            // btnFoldPath
             // 
-            this.cBServer.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cBServer.FormattingEnabled = true;
-            this.cBServer.Location = new System.Drawing.Point(94, 214);
-            this.cBServer.Name = "cBServer";
-            this.cBServer.Size = new System.Drawing.Size(186, 25);
-            this.cBServer.TabIndex = 25;
+            this.btnFoldPath.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnFoldPath.FlatAppearance.BorderSize = 0;
+            this.btnFoldPath.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFoldPath.Image = global::Lending.Properties.Resources.Folder_Explorer_icon;
+            this.btnFoldPath.Location = new System.Drawing.Point(277, 144);
+            this.btnFoldPath.Name = "btnFoldPath";
+            this.btnFoldPath.Size = new System.Drawing.Size(25, 25);
+            this.btnFoldPath.TabIndex = 14;
+            this.btnFoldPath.UseVisualStyleBackColor = true;
+            this.btnFoldPath.Click += new System.EventHandler(this.btnFoldPath_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Black;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Location = new System.Drawing.Point(11, 187);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(283, 3);
+            this.panel1.TabIndex = 13;
+            // 
+            // tBPath
+            // 
+            this.tBPath.BackColor = System.Drawing.Color.White;
+            this.tBPath.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tBPath.ForeColor = System.Drawing.Color.Black;
+            this.tBPath.Location = new System.Drawing.Point(11, 145);
+            this.tBPath.Name = "tBPath";
+            this.tBPath.Size = new System.Drawing.Size(260, 23);
+            this.tBPath.TabIndex = 12;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Gray;
+            this.label4.Location = new System.Drawing.Point(7, 124);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(173, 18);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Lending Report Folder:";
+            // 
+            // btnSave
+            // 
+            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSave.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.Location = new System.Drawing.Point(161, 343);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(133, 29);
+            this.btnSave.TabIndex = 10;
+            this.btnSave.Text = "SAVE SETTINGS";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnTest
+            // 
+            this.btnTest.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnTest.FlatAppearance.BorderColor = System.Drawing.Color.Blue;
+            this.btnTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTest.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTest.Location = new System.Drawing.Point(11, 343);
+            this.btnTest.Name = "btnTest";
+            this.btnTest.Size = new System.Drawing.Size(133, 29);
+            this.btnTest.TabIndex = 9;
+            this.btnTest.Text = "TEST CONNECTION";
+            this.btnTest.UseVisualStyleBackColor = true;
+            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
+            // 
+            // pBLogo
+            // 
+            this.pBLogo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pBLogo.Image = global::Lending.Properties.Resources.Joker_Wallpaper_1;
+            this.pBLogo.Location = new System.Drawing.Point(11, 18);
+            this.pBLogo.Name = "pBLogo";
+            this.pBLogo.Size = new System.Drawing.Size(283, 68);
+            this.pBLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pBLogo.TabIndex = 0;
+            this.pBLogo.TabStop = false;
             // 
             // setFrm
             // 
@@ -257,7 +258,7 @@ namespace Lending
         private System.Windows.Forms.Panel paneMain;
         private System.Windows.Forms.PictureBox pBLogo;
         private System.Windows.Forms.Button btnTest;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox tBPath;
         private System.Windows.Forms.Label label4;

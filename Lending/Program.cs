@@ -20,7 +20,7 @@ namespace Lending
 
             try
             {
-                if (misc.chkCon() != "")
+                if (misc.chkCon() != "" &&  misc.conStat() == true)
                 {
                     Application.Run(new logFrm());
                 }
@@ -29,9 +29,9 @@ namespace Lending
                     Application.Run(new setFrm());
                 }
             }
-            catch
+            catch (Exception e)
             {
-
+                misc.errMsg(e.Message);
             }    
         }
     }

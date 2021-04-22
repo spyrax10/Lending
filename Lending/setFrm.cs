@@ -93,7 +93,59 @@ namespace Lending
 
         private void setFrm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            misc.delAppSettings();
+            //misc.delAppSettings();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (chkSQL.Checked == true)
+            {
+                if (tBPath.Text == "" && cBServer.Text == "")
+                {
+                    misc.invMsg("Missing Fields!");
+                }
+                else
+                {
+                    misc.appSettings(cBServer.Text, tBUser.Text, tBPass.Text, tBPath.Text, chkSQL);
+                    paneMain.Enabled = false;
+                    if (misc.conStat() == true)
+                    {
+                        misc.sucMsg("Settings Saved!");
+                        dbBuilder.createDB();
+                        Application.Restart();
+                        Environment.Exit(0);
+                    }
+                    else
+                    {
+                        misc.errMsg("Can't Connect to Server! Please try again later!");
+                        paneMain.Enabled = true;
+                    }
+                }
+            }
+            else if (chkSQL.Checked == false)
+            {
+                if (misc.isEmptyFields(paneMain) == false)
+                {
+                    misc.appSettings(cBServer.Text, tBUser.Text, tBPass.Text, tBPath.Text, chkSQL);
+                    paneMain.Enabled = false;
+                    if (misc.conStat() == true)
+                    {
+                        misc.sucMsg("Settings Saved!");
+                        dbBuilder.createDB();
+                        Application.Restart();
+                        Environment.Exit(0);
+                    }
+                    else
+                    {
+                        misc.errMsg("Can't Connect to Server! Please try again later!");
+                        paneMain.Enabled = true;
+                    }
+                }
+                else
+                {
+                    misc.invMsg("Missing Fields!");
+                }
+            }
         }
     }
 }

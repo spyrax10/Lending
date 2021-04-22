@@ -16,5 +16,10 @@ namespace Lending
         {
             InitializeComponent();
         }
+
+        private void logFrm_Load(object sender, EventArgs e)
+        {
+            lblInfo.Visible = false;
+        }
     }
 }

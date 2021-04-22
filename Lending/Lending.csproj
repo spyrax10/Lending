@@ -50,6 +50,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class\dbBuilder.cs" />
+    <Compile Include="Class\dbQ.cs" />
     <Compile Include="Class\misc.cs" />
     <Compile Include="logFrm.cs">
       <SubType>Form</SubType>
