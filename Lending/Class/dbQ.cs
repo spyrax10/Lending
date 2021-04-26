@@ -44,7 +44,7 @@ namespace Lending.Class
         }
 
         public static void chkLogIn(TextBox usrTB, TextBox pass, TextBox pass2, 
-            Label info, Panel pane)
+            Label info, Panel pane, Form log)
         {
             try
             {
@@ -59,7 +59,7 @@ namespace Lending.Class
                         info.Visible = true;
                         info.ForeColor = Color.Red;
                         info.Text = "Invalid Format! e.g.(Abcde12)";
-                        pass.Focus();
+                        pass.Text = ""; pass2.Text = ""; pass.Focus();
                     }
                     else
                     {
@@ -69,7 +69,7 @@ namespace Lending.Class
                             info.Visible = true;
                             info.ForeColor = Color.Red;
                             info.Text = "Password Don't Match!";
-                            pass2.Text = ""; pass2.Focus();
+                            pass2.Text = ""; pass.Focus();
                         }
                         else
                         {
@@ -81,13 +81,16 @@ namespace Lending.Class
                                     con.Open();
                                     cmd.CommandText = "SELECT * FROM [lendDB].[dbo].[usrTB] " +
                                         "WHERE Username = @user AND Password = @pass";
-                                    
+                                    cmd.Parameters.AddWithValue("@user", usrTB.Text);
+                                    cmd.Parameters.AddWithValue("@pass", misc.GetMD5(pass.Text));
+
                                     using (var dr = cmd.ExecuteReader())
                                     {
                                         if (dr.Read())
                                         {
                                             mainFrm ma = new mainFrm();
-                                            ma.Show();
+                                            ma.Show(); misc.clrCont(pane);
+                                            log.Hide(); log.ShowInTaskbar = false;
                                         }
                                         else
                                         {

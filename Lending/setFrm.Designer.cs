@@ -81,6 +81,7 @@ namespace Lending
             this.cBServer.Name = "cBServer";
             this.cBServer.Size = new System.Drawing.Size(186, 25);
             this.cBServer.TabIndex = 25;
+            this.cBServer.SelectedIndexChanged += new System.EventHandler(this.cBServer_SelectedIndexChanged);
             // 
             // chkSQL
             // 

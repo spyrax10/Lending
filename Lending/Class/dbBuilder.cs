@@ -39,7 +39,7 @@ namespace Lending.Class
                                         "IF NOT EXISTS (SELECT A.TABLE_NAME FROM lendDB.INFORMATION_SCHEMA.TABLES A " +
                                         "WHERE A.TABLE_NAME = 'logTB') " +
                                         "BEGIN " +
-                                        "CREATE TABLE [lendDB].[dbo].[logTB]" +
+                                        "CREATE TABLE [lendDB].[dbo].[logTB] " +
                                         "(" +
                                         "[ID] INT NOT NULL, " +
                                         "[Date] VARCHAR(50) NOT NULL," +
@@ -51,7 +51,7 @@ namespace Lending.Class
                                         "[TransID] INT NOT NULL, " +
                                         "[OrigValue] VARCHAR(100) NOT NULL," +
                                         "[UpdValue] VARCHAR(100) NOT NULL); END " +
-
+                                                          
                                         "IF NOT EXISTS (SELECT A.ID FROM [lendDB].[dbo].[usrTB] A " +
                                         "WHERE A.ID = 0) " +
                                         "BEGIN " +

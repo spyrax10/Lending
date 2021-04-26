@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lending.Class;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,16 @@ namespace Lending
         public mainFrm()
         {
             InitializeComponent();
+        }
+
+        private void mainFrm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Restart();
+        }
+
+        private void mainFrm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -10,15 +10,20 @@ using System.Net;
 using System.Reflection;
 using System.Security.Cryptography;
 using System.Security.Principal;
+using System.ServiceProcess;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Forms;
 
 namespace Lending.Class
 {
+    
     public class misc
     {
+        
         [Obsolete]
         public static string ip = Dns.GetHostByName(Environment.MachineName).AddressList[0].ToString();
         public static string pc = Environment.MachineName;
@@ -29,8 +34,11 @@ namespace Lending.Class
         public static string rev = "REVERT";
         public static string exp = "EXPORT";
         public static string del = "DELETE";
+        
 
-
+        public static ServiceController agentSC(string sql) => new ServiceController("SQLAgent$" + sql + "", pc);
+        public static ServiceController sqlSC(string sql) => new ServiceController("MSSQL$" + sql + "", pc);
+       
         public static void invMsg(string msg)
         {
             MessageBox.Show(msg, " Invalid", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -43,6 +51,89 @@ namespace Lending.Class
         public static void sucMsg(string msg)
         {
             MessageBox.Show(msg, " Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        public static void addCountTB(string sql)
+        {
+            
+            try
+            {
+                string path = File.ReadAllText(@"..\..\Scripts\countTB(" + sql + ").sql");
+
+                IEnumerable<string> cmd = Regex.Split(path, @"^\s*GO\s*$",
+                                     RegexOptions.Multiline | RegexOptions.IgnoreCase);
+
+                using (var con = getCon())
+                {
+                    con.Open();
+                    foreach (string commandString in cmd)
+                    {
+                        if (commandString.Trim() != "")
+                        {
+                            using (var command = new SqlCommand (commandString, con))
+                            {
+                                command.ExecuteNonQuery();
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                delAppSettings();
+                errMsg(e.Message);
+            }
+        }
+
+        public static bool sqlStat(string val)
+        {
+            return sqlSC(val).Status.Equals(ServiceControllerStatus.Running) && 
+                agentSC(val).Status.Equals(ServiceControllerStatus.Running);
+        }
+
+        public static void stopSQL(string sql)
+        {
+            try
+            {
+                if (sqlStat(sql) == true)
+                {
+                    agentSC(sql).Stop(); sqlSC(sql).Stop();
+                    sucMsg("Service Stop!");
+                }
+            }
+            catch (Exception e)
+            {
+                errMsg(e.Message);
+            }
+        }
+
+        public static void clrCont(Control comp)
+        {
+            comp.Controls.OfType<TextBox>().ToList().ForEach(t => t.Clear());
+            comp.Controls.OfType<ComboBox>().ToList().ForEach(t => t.Text = "");
+            comp.Controls.OfType<Panel>().ToList().ForEach(t => t.Text = "");
+
+            foreach (Control c in comp.Controls)
+            {
+                if (c is Panel)
+                {
+                    foreach (Control d in c.Controls)
+                    {
+                        if (d is TextBox)
+                        {
+                            d.Text = "";
+                        }
+                        if (d is ComboBox)
+                        {
+                            d.Text = "";
+                        }
+                        if (d is DataGridView)
+                        {
+                            d.Refresh();
+                        }
+                    }
+                }
+            }
         }
 
         public static bool passMatch(TextBox pass, TextBox pass2)
@@ -199,7 +290,7 @@ namespace Lending.Class
                 {
                     foreach (var instanceName in instanceKey.GetValueNames())
                     {
-                        sqlName.Add(Environment.MachineName + @"\" + instanceName);
+                        sqlName.Add(Environment.MachineName + "\\" + instanceName);
                     }
                 }
             }
@@ -256,7 +347,8 @@ namespace Lending.Class
             catch (Exception e)
             {
                 errMsg(e.Message);
-                Application.Exit();
+                Environment.Exit(0);
+                Application.Exit();    
             }
         }
 
