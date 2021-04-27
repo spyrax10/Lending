@@ -51,7 +51,25 @@ namespace Lending.Class
                                         "[TransID] INT NOT NULL, " +
                                         "[OrigValue] VARCHAR(100) NOT NULL," +
                                         "[UpdValue] VARCHAR(100) NOT NULL); END " +
-                                                          
+                                        
+                                        "IF NOT EXISTS (SELECT A.TABLE_NAME FROM lendDB.INFORMATION_SCHEMA.TABLES A " +
+                                        "WHERE A.TABLE_NAME = 'CITB') " +
+                                        "BEGIN " +
+                                        "CREATE TABLE [lendDB].[dbo].[CITB] " +
+                                        "( " +
+                                        "[cusId] INT NOT NULL PRIMARY KEY IDENTITY, " +
+                                        "[Firstname] VARCHAR(100) NOT NULL, " +
+                                        "[Midname]	VARCHAR(100) NULL, " +
+                                        "[Lastname]	VARCHAR(100) NOT NULL, " +
+                                        "[Phone]	VARCHAR(50)  NOT NULL, " +
+                                        "[FB]		VARCHAR(100) NULL, " +
+                                        "[Country]	VARCHAR(100) NOT NULL, " +
+                                        "[Province]	VARCHAR(100) NOT NULL, " +
+                                        "[Municipality] VARCHAR(100) NOT NULL, " +
+                                        "[Street/Purok] VARCHAR(100) NOT NULL, " +
+                                        "[Balance]	   FLOAT NOT NULL, " +
+                                        "[Photo]		VARCHAR(MAX) NOT NULL); END " +
+                                               
                                         "IF NOT EXISTS (SELECT A.ID FROM [lendDB].[dbo].[usrTB] A " +
                                         "WHERE A.ID = 0) " +
                                         "BEGIN " +
