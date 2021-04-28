@@ -25,7 +25,28 @@ namespace Lending
 
         private void mainFrm_Load(object sender, EventArgs e)
         {
+            dbQ.loadCount(cBCusCount);
+            cBCusCount.SelectedIndex = 0;
+        }
 
+        private void btnCusSelImg_Click(object sender, EventArgs e)
+        {
+            misc.selImg(pBCusFace);
+        }
+
+        private void cBCusCount_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dbQ.loadPro(cBCusCount, cBCusPro);
+        }
+
+        private void cBCusPro_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dbQ.loadMun(cBCusCount, cBCusPro, cBCusMun);
+        }
+
+        private void cBCusMun_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dbQ.loadBar(cBCusCount, cBCusPro, cBCusMun, cBCusBar);
         }
     }
 }

@@ -76,7 +76,7 @@ namespace Lending.Class
                                         "INSERT INTO lendDB.dbo.usrTB VALUES (" +
                                         "0, " +
                                         "'admin', " +
-                                        "'" + misc.GetMD5("123450") + "', " +
+                                        "'" + misc.GetMD5("Abcde12") + "', " +
                                         "'', " +
                                         "'PENDING', " +
                                         "'" + DateTime.Now.ToShortDateString() + "', " +

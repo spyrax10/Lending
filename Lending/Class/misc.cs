@@ -34,6 +34,7 @@ namespace Lending.Class
         public static string rev = "REVERT";
         public static string exp = "EXPORT";
         public static string del = "DELETE";
+        public static string imgLoc = "";
         
 
         public static ServiceController agentSC(string sql) => new ServiceController("SQLAgent$" + sql + "", pc);
@@ -51,6 +52,18 @@ namespace Lending.Class
         public static void sucMsg(string msg)
         {
             MessageBox.Show(msg, " Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        public static void selImg(PictureBox img)
+        {
+            OpenFileDialog dlg = new OpenFileDialog();
+            dlg.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.tif;...";
+            dlg.Title = "Select a Photo";
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                imgLoc = dlg.FileName.ToString();
+                img.ImageLocation = imgLoc;
+            }
         }
 
         public static void addCountTB(string sql)
@@ -354,9 +367,12 @@ namespace Lending.Class
 
         public static void appSettings(string server, string user, string pass, string path, CheckBox chk)
         {
+            string sql = server.Split('\\').Last();
+
             Configuration config = ConfigurationManager.OpenExeConfiguration(Assembly.GetExecutingAssembly().Location);
             config.ConnectionStrings.ConnectionStrings.Remove("defCon");
             config.AppSettings.Settings.Remove("Server");
+            config.AppSettings.Settings.Remove("SQL");
             config.AppSettings.Settings.Remove("User");
             config.AppSettings.Settings.Remove("Hash");
             config.AppSettings.Settings.Remove("FoldPath");
@@ -375,6 +391,7 @@ namespace Lending.Class
             }
                 
             config.AppSettings.Settings.Add("Server", server);
+            config.AppSettings.Settings.Add("SQL", sql);
             config.AppSettings.Settings.Add("User", user);
             config.AppSettings.Settings.Add("Hash", pass);
             config.AppSettings.Settings.Add("FoldPath", path);

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -43,6 +44,142 @@ namespace Lending.Class
             }
         }
 
+        public static void loadCount(ComboBox cB)
+        {
+            try
+            {
+                using (var con = misc.getCon())
+                {
+                    using (var cmd = con.CreateCommand())
+                    {
+                        con.Open();
+                        cmd.CommandText = "SELECT DISTINCT [Country] " +
+                            "FROM [lendDB].[dbo].[countTB] " +
+                            "ORDER BY [Country] ASC";
+                        
+                        using (var dr = cmd.ExecuteReader())
+                        {
+                            while (dr.Read())
+                            {
+                                cB.Items.Add(dr["Country"].ToString());
+                                Application.DoEvents();
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                misc.errMsg(e.Message);
+            }
+        }
+
+        public static void loadPro(ComboBox count, ComboBox cB)
+        {
+            try
+            {
+                cB.Text = "";
+                cB.Items.Clear();
+
+                using (var con = misc.getCon())
+                {
+                    using (var cmd = con.CreateCommand())
+                    {
+                        con.Open();
+                        cmd.CommandText = "SELECT DISTINCT [Province] " +
+                            "FROM [lendDB].[dbo].[countTB] " +
+                            "WHERE [Country] = @count " +
+                            "ORDER BY [Province] ASC";
+                        cmd.Parameters.AddWithValue("@count", count.Text);
+
+                        using (var dr = cmd.ExecuteReader())
+                        {
+                            while (dr.Read())
+                            {
+                                cB.Items.Add(dr["Province"].ToString());
+                                Application.DoEvents();
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                misc.errMsg(e.Message);
+            }
+        }
+
+        public static void loadMun(ComboBox count, ComboBox pro, ComboBox cB)
+        {
+            try
+            {
+                cB.Text = ""; cB.Items.Clear();
+
+                using (var con = misc.getCon())
+                {
+                    using (var cmd = con.CreateCommand())
+                    {
+                        con.Open();
+                        cmd.CommandText = cmd.CommandText = "SELECT DISTINCT [Municipality] " +
+                            "FROM [lendDB].[dbo].[countTB] " +
+                            "WHERE [Country] = @count AND [Province] = @pro " +
+                            "ORDER BY [Municipality] ASC";
+                        cmd.Parameters.AddWithValue("@count", count.Text);
+                        cmd.Parameters.AddWithValue("@pro", pro.Text);
+
+                        using (var dr = cmd.ExecuteReader())
+                        {
+                            while (dr.Read())
+                            {
+                                cB.Items.Add(dr["Municipality"].ToString());
+                                Application.DoEvents();
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                misc.errMsg(e.Message);
+            }
+        }
+
+        public static void loadBar(ComboBox count, ComboBox pro, ComboBox mun, ComboBox cB)
+        {
+            try
+            {
+                cB.Text = ""; cB.Items.Clear();
+
+                using (var con = misc.getCon())
+                {
+                    using (var cmd = con.CreateCommand())
+                    {
+                        con.Open();
+                        cmd.CommandText = cmd.CommandText = cmd.CommandText = "SELECT DISTINCT [Barangay] " +
+                            "FROM [lendDB].[dbo].[countTB] " +
+                            "WHERE [Country] = @count AND [Province] = @pro AND [Municipality] = @mun " +
+                            "ORDER BY [Barangay] ASC";
+                        cmd.Parameters.AddWithValue("@count", count.Text);
+                        cmd.Parameters.AddWithValue("@pro", pro.Text);
+                        cmd.Parameters.AddWithValue("@mun", mun.Text);
+
+                        using (var dr = cmd.ExecuteReader())
+                        {
+                            while (dr.Read())
+                            {
+                                cB.Items.Add(dr["Barangay"].ToString());
+                                Application.DoEvents();
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                misc.errMsg(e.Message);
+            }
+        }
+
         public static void chkLogIn(TextBox usrTB, TextBox pass, TextBox pass2, 
             Label info, Panel pane, Form log)
         {
@@ -74,6 +211,10 @@ namespace Lending.Class
                         else
                         {
                             info.Visible = false;
+
+                            if (misc.sqlStat(ConfigurationManager.AppSettings["SQL"].ToString()) == false)
+                                misc.agentSC(ConfigurationManager.AppSettings["SQL"].ToString()).Start();
+
                             using (var con = misc.getCon())
                             {
                                 using (var cmd = con.CreateCommand())
