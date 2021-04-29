@@ -259,7 +259,7 @@ namespace Lending.Class
             catch (Exception e)
             {
                 stat = false;
-                delAppSettings();
+                //delAppSettings();
             }
             return stat;
         }
@@ -355,6 +355,10 @@ namespace Lending.Class
 
                     // Shut down the current (old) process
                     Application.Exit();
+                }
+                else
+                {
+                    return;
                 }
             }
             catch (Exception e)

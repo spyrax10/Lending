@@ -48,5 +48,15 @@ namespace Lending
         {
             dbQ.loadBar(cBCusCount, cBCusPro, cBCusMun, cBCusBar);
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (tBCusFB.Text == "")
+            {
+                tBCusFB.Text = "N/A";
+            }
+            dbQ.createCusInfo(paneCusInfo, tBCusFirst.Text, tBCusMid.Text, tBCusLast.Text, tBCusMob.Text, tBCusFB.Text,
+                cBCusCount.Text, cBCusPro.Text, cBCusMun.Text, cBCusBar.Text, tBCusPur.Text, tBCusBal.Text, pBCusFace);
+        }
     }
 }

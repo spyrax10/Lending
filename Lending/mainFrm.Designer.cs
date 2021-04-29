@@ -187,6 +187,7 @@ namespace Lending
             this.button2.TabIndex = 25;
             this.button2.Text = "UPDATE";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label5
             // 
@@ -205,6 +206,7 @@ namespace Lending
             this.tBCusBal.Name = "tBCusBal";
             this.tBCusBal.Size = new System.Drawing.Size(145, 27);
             this.tBCusBal.TabIndex = 24;
+            this.tBCusBal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label12
             // 
@@ -494,6 +496,7 @@ namespace Lending
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "mainFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";

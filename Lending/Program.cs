@@ -1,6 +1,7 @@
 ﻿using Lending.Class;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -22,8 +23,7 @@ namespace Lending
 
             try
             {
-               
-                if (misc.chkCon() != "" &&  misc.conStat() == true)
+                if (misc.chkCon() != "")
                 {
                     Application.Run(new logFrm());
                 }

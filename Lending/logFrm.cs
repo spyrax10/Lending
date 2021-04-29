@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace Lending
 {
     public partial class logFrm : Form
     {
-        public Mutex singleton = new Mutex(true, "Lending");
+        public Mutex singleton = new Mutex(true, "Login");
         public logFrm()
         {
             InitializeComponent();
@@ -28,6 +29,7 @@ namespace Lending
 
         private void logFrm_Load(object sender, EventArgs e)
         {
+            misc.runAdm();
             lblInfo.Visible = false;
         }
 

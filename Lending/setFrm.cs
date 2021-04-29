@@ -97,8 +97,7 @@ namespace Lending
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            string sql = cBServer.Text.Split('\\').Last();
-
+           
             if (chkSQL.Checked == true)
             {
                 if (tBPath.Text == "" && cBServer.Text == "")
@@ -112,7 +111,6 @@ namespace Lending
                     if (misc.conStat() == true)
                     {
                         dbBuilder.createDB();
-                        misc.addCountTB(sql);
                         misc.sucMsg("Application Settings Saved!");
                         Application.Restart();
                         Environment.Exit(0);
@@ -134,7 +132,6 @@ namespace Lending
                     if (misc.conStat() == true)
                     {
                         dbBuilder.createDB();
-                        misc.addCountTB(sql);
                         misc.sucMsg("Application Settings Saved!");
                         Application.Restart();
                         Environment.Exit(0);
