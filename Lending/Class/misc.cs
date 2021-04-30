@@ -66,6 +66,14 @@ namespace Lending.Class
             }
         }
 
+        public static object imgSelection()
+        {
+            byte[] img = null;
+            FileStream fs = new FileStream(imgLoc, FileMode.Open, FileAccess.Read);
+            BinaryReader br = new BinaryReader(fs);
+            return img = br.ReadBytes((int)fs.Length);
+        }
+
         public static void addCountTB(string sql)
         {
             

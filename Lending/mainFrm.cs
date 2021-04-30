@@ -31,7 +31,7 @@ namespace Lending
 
         private void btnCusSelImg_Click(object sender, EventArgs e)
         {
-            misc.selImg(pBCusFace);
+            dbQ.updCusImg(pBCusFace, btnCusReg, tBCusID);
         }
 
         private void cBCusCount_SelectedIndexChanged(object sender, EventArgs e)
@@ -49,14 +49,15 @@ namespace Lending
             dbQ.loadBar(cBCusCount, cBCusPro, cBCusMun, cBCusBar);
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnCusReg_Click(object sender, EventArgs e)
         {
             if (tBCusFB.Text == "")
             {
                 tBCusFB.Text = "N/A";
             }
-            dbQ.createCusInfo(paneCusInfo, tBCusFirst.Text, tBCusMid.Text, tBCusLast.Text, tBCusMob.Text, tBCusFB.Text,
-                cBCusCount.Text, cBCusPro.Text, cBCusMun.Text, cBCusBar.Text, tBCusPur.Text, tBCusBal.Text, pBCusFace);
+            dbQ.createCusInfo(paneCusBody, tBCusFirst.Text, tBCusMid.Text, tBCusLast.Text, tBCusMob.Text, tBCusFB.Text,
+                cBCusCount.Text, cBCusPro.Text, cBCusMun.Text, cBCusBar.Text, tBCusPur.Text, tBCusBal, 
+                btnCusReg, tBCusID);
         }
     }
 }

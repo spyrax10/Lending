@@ -15,16 +15,16 @@ namespace Lending
 {
     public partial class logFrm : Form
     {
-        public Mutex singleton = new Mutex(true, "Login");
+        public Mutex singleton = new Mutex(true, "Lending");
         public logFrm()
         {
             InitializeComponent();
-            if (!singleton.WaitOne(TimeSpan.Zero, true))
-            {
-                //there is already another instance running!
-                Application.Exit();
-                Environment.Exit(0);
-            }
+            //if (!singleton.WaitOne(TimeSpan.Zero, true))
+            //{
+            //    //there is already another instance running!
+            //    Environment.Exit(0);
+            //    Application.Exit();
+            //}
         }
 
         private void logFrm_Load(object sender, EventArgs e)

@@ -182,8 +182,107 @@ namespace Lending.Class
             }
         }
 
+        public static void updCusImg(PictureBox pB, Button btn, TextBox cusId)
+        {
+            try
+            {
+                misc.selImg(pB);
+
+                byte[] img = null;
+                FileStream fs = new FileStream(misc.imgLoc, FileMode.Open, FileAccess.Read);
+                BinaryReader br = new BinaryReader(fs);
+                img = br.ReadBytes((int)fs.Length);
+
+                using (var con = misc.getCon())
+                {
+                    con.Open();
+
+                    if (btn.Text == "UPDATE")
+                    {
+                        if (MessageBox.Show("Update Avatar?", " Confirmation",
+                            MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            using (var cmd = con.CreateCommand())
+                            {
+                                cmd.CommandText = "UPDATE [lendDB].[dbo].[CITB] " +
+                                    "SET [Photo] = @img WHERE [cusId] = @cusId";
+                                cmd.Parameters.AddWithValue("@img", img);
+                                cmd.Parameters.AddWithValue("@cusId", cusId.Text);
+                                cmd.ExecuteNonQuery();
+                                misc.sucMsg("Avatar Updated!");
+                            }
+                        }
+                        else
+                        {
+                            using (var cmd2 = con.CreateCommand())
+                            {
+                                cmd2.CommandText = "SELECT [cusId], [Photo] " +
+                                    "FROM [lendDB].[dbo].[CITB] " +
+                                    "WHERE [cusId] = @cusId";
+                                cmd2.Parameters.AddWithValue("@cusId", cusId.Text);
+
+                                using (var dr = cmd2.ExecuteReader())
+                                {
+                                    if (dr.Read())
+                                    {
+                                        img = (byte[])(dr["Photo"]);
+                                        MemoryStream ms = new MemoryStream(img);
+                                        pB.Image = Image.FromStream(ms);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                misc.errMsg(e.Message);
+            }
+        }
+
+        public static bool nameExist(string first, string mid, string last, string cusId)
+        {
+            bool stat = false;
+            try
+            {
+                using (var con = misc.getCon())
+                {
+                    con.Open();
+                    using (var cmd = con.CreateCommand())
+                    {
+                        cmd.CommandText = "SELECT * FROM [lendDB].[dbo].[CITB] " +
+                            "WHERE [Firstname] = @first AND [Midname] = @mid AND [Lastname] = @last " +
+                            "AND [cusId] <> @id";
+                        cmd.Parameters.AddWithValue("@first", first);
+                        cmd.Parameters.AddWithValue("@mid", mid);
+                        cmd.Parameters.AddWithValue("@last", last);
+                        cmd.Parameters.AddWithValue("@id", cusId);
+
+                        using (var dr = cmd.ExecuteReader())
+                        {
+                            if (dr.Read())
+                            {
+                                stat = true;
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                misc.errMsg(e.Message);
+            }
+            return stat;
+        }
+
         public static void createCusInfo(Panel pane, string first, string mid, string last, string mob, string fb, 
-            string count, string pro, string mun, string bar, string pur, string bal, PictureBox pB)
+            string count, string pro, string mun, string bar, string pur, TextBox bal, 
+            Button but, TextBox cusId)
         {
             try
             {
@@ -203,42 +302,83 @@ namespace Lending.Class
                 {
                     using (var con = misc.getCon())
                     {
-                        using (var cmd = con.CreateCommand())
+                        con.Open();
+
+                        if (but.Text == "REGISTER")
                         {
-                            con.Open();
-                            cmd.CommandText = "SELECT ISNULL(MAX(A.cusId), 0) [cusId] " +
-                                "FROM [lendDB].[dbo].[CITB] A";
-
-                            using (var dr = cmd.ExecuteReader())
+                            using (var cmd = con.CreateCommand())
                             {
-                                if (dr.Read())
-                                {
-                                    id = Int32.Parse(dr["cusId"].ToString()) + 1;
-                                }
+                                cmd.CommandText = "SELECT ISNULL(MAX(A.cusId), 0) [cusId] " +
+                                    "FROM [lendDB].[dbo].[CITB] A";
 
-                                using (var cmd2 = con.CreateCommand())
+                                using (var dr = cmd.ExecuteReader())
                                 {
-                                    cmd2.CommandText = "INSERT INTO [lendDB].[dbo].[CITB] VALUES ( " +
-                                        "@cusId, @first, @mid, @last, @mob, @fb, @count, @pro, @mun, @bar, " +
-                                        "@pur, @bal, @img)";
-                                    cmd2.Parameters.AddWithValue("@cusId", id);
-                                    cmd2.Parameters.AddWithValue("@first", first);
-                                    cmd2.Parameters.AddWithValue("@mid", mid);
-                                    cmd2.Parameters.AddWithValue("@last", last);
-                                    cmd2.Parameters.AddWithValue("@mob", mob);
-                                    cmd2.Parameters.AddWithValue("@fb", fb);
-                                    cmd2.Parameters.AddWithValue("@count", count);
-                                    cmd2.Parameters.AddWithValue("@pro", pro);
-                                    cmd2.Parameters.AddWithValue("@mun", mun);
-                                    cmd2.Parameters.AddWithValue("@bar", bar);
-                                    cmd2.Parameters.AddWithValue("@pur", pur);
-                                    cmd2.Parameters.AddWithValue("@bal", bal);
-                                    cmd2.Parameters.Add(new SqlParameter("@img", img));
-                                    cmd2.ExecuteNonQuery();
-                                    misc.sucMsg("Customer Added!");
+                                    if (dr.Read())
+                                    {
+                                        id = Int32.Parse(dr["cusId"].ToString()) + 1;
+                                    }
+
+                                    using (var cmd2 = con.CreateCommand())
+                                    {
+                                        cmd2.CommandText = "INSERT INTO [lendDB].[dbo].[CITB] VALUES ( " +
+                                            "@cusId, @first, @mid, @last, @mob, @fb, @count, @pro, @mun, @bar, " +
+                                            "@pur, @bal, @img)";
+                                        cmd2.Parameters.AddWithValue("@cusId", id);
+                                        cmd2.Parameters.AddWithValue("@first", first);
+                                        cmd2.Parameters.AddWithValue("@mid", mid);
+                                        cmd2.Parameters.AddWithValue("@last", last);
+                                        cmd2.Parameters.AddWithValue("@mob", mob);
+                                        cmd2.Parameters.AddWithValue("@fb", fb);
+                                        cmd2.Parameters.AddWithValue("@count", count);
+                                        cmd2.Parameters.AddWithValue("@pro", pro);
+                                        cmd2.Parameters.AddWithValue("@mun", mun);
+                                        cmd2.Parameters.AddWithValue("@bar", bar);
+                                        cmd2.Parameters.AddWithValue("@pur", pur);
+                                        cmd2.Parameters.AddWithValue("@bal", bal.Text);
+                                        cmd2.Parameters.Add(new SqlParameter("@img", misc.imgSelection()));
+
+                                        cmd2.ExecuteNonQuery();
+                                        misc.sucMsg("Customer Added!");
+                                        cusId.Text = id.ToString();
+                                        but.Text = "UPDATE";
+                                        bal.Enabled = false;
+                                    }
                                 }
                             }
                         }
+                        else
+                        {
+                            using (var cmdU = con.CreateCommand())
+                            {
+                                cmdU.CommandText = "UPDATE [lendDB].[dbo].[CITB] SET [Firstname] = @first, " +
+                                    "[Midname] = @mid, [Lastname] = @last, [Phone] = @mob, [FB] = @fb, " +
+                                    "[Country] = @count, [Province] = @pro, [Municipality] = @mun, " +
+                                    "[Barangay] = @bar, [Street/Purok] = @pur " +
+                                    "WHERE [cusId] = @cusId";
+                                cmdU.Parameters.AddWithValue("@cusId", cusId.Text);
+                                cmdU.Parameters.AddWithValue("@first", first);
+                                cmdU.Parameters.AddWithValue("@mid", mid);
+                                cmdU.Parameters.AddWithValue("@last", last);
+                                cmdU.Parameters.AddWithValue("@mob", mob);
+                                cmdU.Parameters.AddWithValue("@fb", fb);
+                                cmdU.Parameters.AddWithValue("@count", count);
+                                cmdU.Parameters.AddWithValue("@pro", pro);
+                                cmdU.Parameters.AddWithValue("@mun", mun);
+                                cmdU.Parameters.AddWithValue("@bar", bar);
+                                cmdU.Parameters.AddWithValue("@pur", pur);
+                                
+                                if (nameExist(first, mid, last, id.ToString()) == true)
+                                {
+                                    misc.errMsg("Customer Name Existed!");
+                                }
+                                else
+                                {
+                                    cmdU.ExecuteNonQuery();
+                                    misc.sucMsg("Customer Updated!");
+                                }      
+                            }
+                        }
+                       
                     }
                 }
             }
