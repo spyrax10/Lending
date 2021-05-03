@@ -108,6 +108,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="lending.ico" />
+    <None Include="Resources\Actions-arrow-left-double-icon.png" />
+    <None Include="Resources\Actions-arrow-left-double-icon %2816%29.png" />
+    <None Include="Resources\Actions-arrow-left-double-icon %2824%29.png" />
+    <None Include="Resources\Actions-arrow-right-double-icon %2824%29.png" />
+    <None Include="Resources\Actions-arrow-right-icon %2824%29.png" />
+    <None Include="Resources\Actions-arrow-left-icon %2824%29.png" />
+    <None Include="Resources\Male-user-add-icon.png" />
+    <None Include="Resources\Search-icon.png" />
     <Content Include="Scripts\countTB%28SQL12%29.sql" />
     <Content Include="Scripts\countTB%28SQL19%29.sql" />
     <None Include="Resources\Button-Close-icon %2816%29.png" />

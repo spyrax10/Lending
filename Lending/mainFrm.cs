@@ -18,9 +18,19 @@ namespace Lending
             InitializeComponent();
         }
 
+        public void clrCusInfo()
+        {
+            btnCusReg.Text = "REGISTER";
+            tBCusID.Text = "";
+            misc.clrCont(paneCusBody);
+            dbQ.loadCount(cBCusCount);
+            cBCusCount.SelectedIndex = 0;
+            pBCusFace.Image = null;
+        }
+
         private void mainFrm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Restart();
+            Application.Exit();
         }
 
         private void mainFrm_Load(object sender, EventArgs e)
@@ -55,9 +65,44 @@ namespace Lending
             {
                 tBCusFB.Text = "N/A";
             }
-            dbQ.createCusInfo(paneCusBody, tBCusFirst.Text, tBCusMid.Text, tBCusLast.Text, tBCusMob.Text, tBCusFB.Text,
-                cBCusCount.Text, cBCusPro.Text, cBCusMun.Text, cBCusBar.Text, tBCusPur.Text, tBCusBal, 
+            dbQ.createCusInfo(paneCusBody, tBCusFirst, tBCusMid, tBCusLast, tBCusMob, tBCusFB,
+                cBCusCount, cBCusPro, cBCusMun, cBCusBar, tBCusPur, tBCusBal, 
                 btnCusReg, tBCusID);
+        }
+
+        private void btnCusFirst_Click(object sender, EventArgs e)
+        {
+            dbQ.viewCusDet(2, tBCusID, tBCusFirst, tBCusMid, tBCusLast, tBCusMob, tBCusFB,
+                cBCusCount, cBCusPro, cBCusMun, cBCusBar, tBCusPur, tBCusBal, pBCusFace, btnCusReg);
+        }
+
+        private void btnCusLast_Click(object sender, EventArgs e)
+        {
+            dbQ.viewCusDet(1, tBCusID, tBCusFirst, tBCusMid, tBCusLast, tBCusMob, tBCusFB,
+                cBCusCount, cBCusPro, cBCusMun, cBCusBar, tBCusPur, tBCusBal, pBCusFace, btnCusReg);
+        }
+
+        private void btnCusPrev_Click(object sender, EventArgs e)
+        {
+            if (tBCusID.Text != "")
+            {
+                dbQ.viewCusDet(4, tBCusID, tBCusFirst, tBCusMid, tBCusLast, tBCusMob, tBCusFB,
+                    cBCusCount, cBCusPro, cBCusMun, cBCusBar, tBCusPur, tBCusBal, pBCusFace, btnCusReg);
+            }       
+        }
+
+        private void btnCusNxt_Click(object sender, EventArgs e)
+        {
+            if (tBCusID.Text != "")
+            {
+                dbQ.viewCusDet(3, tBCusID, tBCusFirst, tBCusMid, tBCusLast, tBCusMob, tBCusFB,
+                    cBCusCount, cBCusPro, cBCusMun, cBCusBar, tBCusPur, tBCusBal, pBCusFace, btnCusReg);
+            }   
+        }
+
+        private void btnCusAdd_Click(object sender, EventArgs e)
+        {
+            clrCusInfo();
         }
     }
 }

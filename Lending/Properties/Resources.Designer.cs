@@ -63,6 +63,66 @@ namespace Lending.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Actions_arrow_left_double_icon {
+            get {
+                object obj = ResourceManager.GetObject("Actions-arrow-left-double-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Actions_arrow_left_double_icon__16_ {
+            get {
+                object obj = ResourceManager.GetObject("Actions-arrow-left-double-icon (16)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Actions_arrow_left_double_icon__24_ {
+            get {
+                object obj = ResourceManager.GetObject("Actions-arrow-left-double-icon (24)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Actions_arrow_left_icon__24_ {
+            get {
+                object obj = ResourceManager.GetObject("Actions-arrow-left-icon (24)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Actions_arrow_right_double_icon__24_ {
+            get {
+                object obj = ResourceManager.GetObject("Actions-arrow-right-double-icon (24)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Actions_arrow_right_icon__24_ {
+            get {
+                object obj = ResourceManager.GetObject("Actions-arrow-right-icon (24)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Actions_view_refresh_icon__1_ {
             get {
                 object obj = ResourceManager.GetObject("Actions-view-refresh-icon (1)", resourceCulture);
@@ -156,6 +216,26 @@ namespace Lending.Properties {
         internal static System.Drawing.Bitmap logo_frontaccounting1 {
             get {
                 object obj = ResourceManager.GetObject("logo_frontaccounting1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Male_user_add_icon {
+            get {
+                object obj = ResourceManager.GetObject("Male-user-add-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Search_icon {
+            get {
+                object obj = ResourceManager.GetObject("Search-icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
