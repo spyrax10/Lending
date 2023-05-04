@@ -1,4 +1,5 @@
-﻿using Lending.Functions;
+﻿using Lending.Forms;
+using Lending.Functions;
 using System;
 using System.Data.SqlClient;
 using System.Drawing;

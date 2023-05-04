@@ -143,9 +143,29 @@ namespace Lending.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap aha_chart {
+            get {
+                object obj = ResourceManager.GetObject("aha_chart", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ajax_loader {
             get {
                 object obj = ResourceManager.GetObject("ajax-loader", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap apat_setup {
+            get {
+                object obj = ResourceManager.GetObject("apat_setup", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -166,6 +186,16 @@ namespace Lending.Properties {
         internal static System.Drawing.Bitmap Button_Close_icon__16_ {
             get {
                 object obj = ResourceManager.GetObject("Button-Close-icon (16)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cust_saleList {
+            get {
+                object obj = ResourceManager.GetObject("cust_saleList", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -196,6 +226,16 @@ namespace Lending.Properties {
         internal static System.Drawing.Bitmap folder_search_icon {
             get {
                 object obj = ResourceManager.GetObject("folder-search-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ios_setup {
+            get {
+                object obj = ResourceManager.GetObject("ios_setup", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -243,9 +283,79 @@ namespace Lending.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap mind_full {
+            get {
+                object obj = ResourceManager.GetObject("mind_full", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mono_close {
+            get {
+                object obj = ResourceManager.GetObject("mono_close", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap prog_dashboard {
+            get {
+                object obj = ResourceManager.GetObject("prog_dashboard", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap prog_logout {
+            get {
+                object obj = ResourceManager.GetObject("prog_logout", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap prog_settings {
+            get {
+                object obj = ResourceManager.GetObject("prog_settings", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap prog_setup {
+            get {
+                object obj = ResourceManager.GetObject("prog_setup", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Search_icon {
             get {
                 object obj = ResourceManager.GetObject("Search-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sov_general {
+            get {
+                object obj = ResourceManager.GetObject("sov_general", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
