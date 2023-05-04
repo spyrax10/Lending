@@ -1,19 +1,12 @@
 ﻿using Lending.Class;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Lending
 {
-    public partial class mainFrm : Form
+    public partial class Dashboard : Form
     {
-        public mainFrm()
+        public Dashboard()
         {
             InitializeComponent();
         }
@@ -22,8 +15,8 @@ namespace Lending
         {
             btnCusReg.Text = "REGISTER";
             tBCusID.Text = "";
-            misc.clrCont(paneCusBody);
-            dbQ.loadCount(cBCusCount);
+            Extra.clrCont(paneCusBody);
+            Query.loadCount(cBCusCount);
             cBCusCount.SelectedIndex = 0;
             pBCusFace.Image = null;
         }
@@ -35,28 +28,28 @@ namespace Lending
 
         private void mainFrm_Load(object sender, EventArgs e)
         {
-            dbQ.loadCount(cBCusCount);
+            Query.loadCount(cBCusCount);
             cBCusCount.SelectedIndex = 0;
         }
 
         private void btnCusSelImg_Click(object sender, EventArgs e)
         {
-            dbQ.updCusImg(pBCusFace, btnCusReg, tBCusID);
+            Query.updCusImg(pBCusFace, btnCusReg, tBCusID);
         }
 
         private void cBCusCount_SelectedIndexChanged(object sender, EventArgs e)
         {
-            dbQ.loadPro(cBCusCount, cBCusPro);
+            Query.loadPro(cBCusCount, cBCusPro);
         }
 
         private void cBCusPro_SelectedIndexChanged(object sender, EventArgs e)
         {
-            dbQ.loadMun(cBCusCount, cBCusPro, cBCusMun);
+            Query.loadMun(cBCusCount, cBCusPro, cBCusMun);
         }
 
         private void cBCusMun_SelectedIndexChanged(object sender, EventArgs e)
         {
-            dbQ.loadBar(cBCusCount, cBCusPro, cBCusMun, cBCusBar);
+            Query.loadBar(cBCusCount, cBCusPro, cBCusMun, cBCusBar);
         }
 
         private void btnCusReg_Click(object sender, EventArgs e)
@@ -65,20 +58,20 @@ namespace Lending
             {
                 tBCusFB.Text = "N/A";
             }
-            dbQ.createCusInfo(paneCusBody, tBCusFirst, tBCusMid, tBCusLast, tBCusMob, tBCusFB,
+            Query.createCusInfo(paneCusBody, tBCusFirst, tBCusMid, tBCusLast, tBCusMob, tBCusFB,
                 cBCusCount, cBCusPro, cBCusMun, cBCusBar, tBCusPur, tBCusBal, 
                 btnCusReg, tBCusID);
         }
 
         private void btnCusFirst_Click(object sender, EventArgs e)
         {
-            dbQ.viewCusDet(2, tBCusID, tBCusFirst, tBCusMid, tBCusLast, tBCusMob, tBCusFB,
+            Query.viewCusDet(2, tBCusID, tBCusFirst, tBCusMid, tBCusLast, tBCusMob, tBCusFB,
                 cBCusCount, cBCusPro, cBCusMun, cBCusBar, tBCusPur, tBCusBal, pBCusFace, btnCusReg);
         }
 
         private void btnCusLast_Click(object sender, EventArgs e)
         {
-            dbQ.viewCusDet(1, tBCusID, tBCusFirst, tBCusMid, tBCusLast, tBCusMob, tBCusFB,
+            Query.viewCusDet(1, tBCusID, tBCusFirst, tBCusMid, tBCusLast, tBCusMob, tBCusFB,
                 cBCusCount, cBCusPro, cBCusMun, cBCusBar, tBCusPur, tBCusBal, pBCusFace, btnCusReg);
         }
 
@@ -86,7 +79,7 @@ namespace Lending
         {
             if (tBCusID.Text != "")
             {
-                dbQ.viewCusDet(4, tBCusID, tBCusFirst, tBCusMid, tBCusLast, tBCusMob, tBCusFB,
+                Query.viewCusDet(4, tBCusID, tBCusFirst, tBCusMid, tBCusLast, tBCusMob, tBCusFB,
                     cBCusCount, cBCusPro, cBCusMun, cBCusBar, tBCusPur, tBCusBal, pBCusFace, btnCusReg);
             }       
         }
@@ -95,7 +88,7 @@ namespace Lending
         {
             if (tBCusID.Text != "")
             {
-                dbQ.viewCusDet(3, tBCusID, tBCusFirst, tBCusMid, tBCusLast, tBCusMob, tBCusFB,
+                Query.viewCusDet(3, tBCusID, tBCusFirst, tBCusMid, tBCusLast, tBCusMob, tBCusFB,
                     cBCusCount, cBCusPro, cBCusMun, cBCusBar, tBCusPur, tBCusBal, pBCusFace, btnCusReg);
             }   
         }

@@ -1,22 +1,14 @@
 ﻿using Lending.Class;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Configuration;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Lending
 {
-    public partial class logFrm : Form
+    public partial class Login : Form
     {
         public Mutex singleton = new Mutex(true, "Lending");
-        public logFrm()
+        public Login()
         {
             InitializeComponent();
             //if (!singleton.WaitOne(TimeSpan.Zero, true))
@@ -29,7 +21,6 @@ namespace Lending
 
         private void logFrm_Load(object sender, EventArgs e)
         {
-            misc.runAdm();
             lblInfo.Visible = false;
         }
 
@@ -37,7 +28,7 @@ namespace Lending
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
-                dbQ.chkLogIn(tBUser, tBPass, tBPass2, lblInfo, paneMain, this);
+                Query.chkLogIn(tBUser, tBPass, tBPass2, lblInfo, paneMain, this);
             }
         }
 

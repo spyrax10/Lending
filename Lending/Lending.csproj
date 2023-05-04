@@ -51,37 +51,40 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class\dbBuilder.cs" />
-    <Compile Include="Class\dbQ.cs" />
-    <Compile Include="Class\misc.cs" />
-    <Compile Include="logFrm.cs">
+    <Compile Include="Functions\AppSettings.cs" />
+    <Compile Include="Functions\Builder.cs" />
+    <Compile Include="Functions\Query.cs" />
+    <Compile Include="Functions\Extra.cs" />
+    <Compile Include="Functions\Notification.cs" />
+    <Compile Include="Functions\SQL.cs" />
+    <Compile Include="Forms\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="logFrm.Designer.cs">
-      <DependentUpon>logFrm.cs</DependentUpon>
+    <Compile Include="Forms\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="mainFrm.cs">
+    <Compile Include="Forms\Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="mainFrm.Designer.cs">
-      <DependentUpon>mainFrm.cs</DependentUpon>
+    <Compile Include="Forms\Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="setFrm.cs">
+    <Compile Include="Forms\Settings.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="setFrm.Designer.cs">
-      <DependentUpon>setFrm.cs</DependentUpon>
+    <Compile Include="Forms\Settings.Designer.cs">
+      <DependentUpon>Settings.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="logFrm.resx">
-      <DependentUpon>logFrm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="mainFrm.resx">
-      <DependentUpon>mainFrm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="setFrm.resx">
-      <DependentUpon>setFrm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Settings.resx">
+      <DependentUpon>Settings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -116,6 +119,7 @@
     <None Include="Resources\Actions-arrow-left-icon %2824%29.png" />
     <None Include="Resources\Male-user-add-icon.png" />
     <None Include="Resources\Search-icon.png" />
+    <None Include="Resources\folder-search-icon.png" />
     <Content Include="Scripts\countTB%28SQL12%29.sql" />
     <Content Include="Scripts\countTB%28SQL19%29.sql" />
     <None Include="Resources\Button-Close-icon %2816%29.png" />

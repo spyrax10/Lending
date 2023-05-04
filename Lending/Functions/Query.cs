@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
+﻿using Lending.Functions;
+using System;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Lending.Class
 {
-    public class dbQ
+    public class Query
     {
         [Obsolete]
         public static void log(int id, string action, string table, string transId, 
@@ -19,18 +15,18 @@ namespace Lending.Class
         {
             try
             {
-                using (var con = misc.getCon())
+                using (var con = SQL.getConnection())
                 {
                     using (var cmd = con.CreateCommand())
                     {
                         con.Open();
-                        cmd.CommandText = "INSERT INTO [lendDB].[dbo].[LOGTB] VALUES (@id, @date, @time, @ip, @pc, " +
+                        cmd.CommandText = "INSERT INTO [zzz_Lending].[dbo].[LOGTB] VALUES (@id, @date, @time, @ip, @pc, " +
                             "@action, @table, @transID, @orig, @val)";
                         cmd.Parameters.AddWithValue("@id", id);
                         cmd.Parameters.AddWithValue("@date", DateTime.Now.ToShortDateString());
                         cmd.Parameters.AddWithValue("@time", DateTime.Now.ToShortTimeString());
-                        cmd.Parameters.AddWithValue("@ip", misc.ip);
-                        cmd.Parameters.AddWithValue("@pc", misc.pc);
+                        cmd.Parameters.AddWithValue("@ip", AppSettings.ip);
+                        cmd.Parameters.AddWithValue("@pc", AppSettings.pc);
                         cmd.Parameters.AddWithValue("@action", action);
                         cmd.Parameters.AddWithValue("@table", table);
                         cmd.Parameters.AddWithValue("@transID", transId);
@@ -42,7 +38,7 @@ namespace Lending.Class
             }
             catch (Exception e)
             {
-                misc.errMsg(e.Message);
+                Notification.Error(e.Message);
             }
         }
 
@@ -50,13 +46,13 @@ namespace Lending.Class
         {
             try
             {
-                using (var con = misc.getCon())
+                using (var con = SQL.getConnection())
                 {
                     using (var cmd = con.CreateCommand())
                     {
                         con.Open();
                         cmd.CommandText = "SELECT DISTINCT [Country] " +
-                            "FROM [lendDB].[dbo].[countTB] " +
+                            "FROM [zzz_Lending].[dbo].[countTB] " +
                             "ORDER BY [Country] ASC";
                         
                         using (var dr = cmd.ExecuteReader())
@@ -72,7 +68,7 @@ namespace Lending.Class
             }
             catch (Exception e)
             {
-                misc.errMsg(e.Message);
+                Notification.Error(e.Message);
             }
         }
 
@@ -83,13 +79,13 @@ namespace Lending.Class
                 cB.Text = "";
                 cB.Items.Clear();
 
-                using (var con = misc.getCon())
+                using (var con = SQL.getConnection())
                 {
                     using (var cmd = con.CreateCommand())
                     {
                         con.Open();
                         cmd.CommandText = "SELECT DISTINCT [Province] " +
-                            "FROM [lendDB].[dbo].[countTB] " +
+                            "FROM [zzz_Lending].[dbo].[countTB] " +
                             "WHERE [Country] = @count " +
                             "ORDER BY [Province] ASC";
                         cmd.Parameters.AddWithValue("@count", count.Text);
@@ -107,7 +103,7 @@ namespace Lending.Class
             }
             catch (Exception e)
             {
-                misc.errMsg(e.Message);
+                Notification.Error(e.Message);
             }
         }
 
@@ -117,13 +113,13 @@ namespace Lending.Class
             {
                 cB.Text = ""; cB.Items.Clear();
 
-                using (var con = misc.getCon())
+                using (var con = SQL.getConnection())
                 {
                     using (var cmd = con.CreateCommand())
                     {
                         con.Open();
                         cmd.CommandText = cmd.CommandText = "SELECT DISTINCT [Municipality] " +
-                            "FROM [lendDB].[dbo].[countTB] " +
+                            "FROM [zzz_Lending].[dbo].[countTB] " +
                             "WHERE [Country] = @count AND [Province] = @pro " +
                             "ORDER BY [Municipality] ASC";
                         cmd.Parameters.AddWithValue("@count", count.Text);
@@ -142,7 +138,7 @@ namespace Lending.Class
             }
             catch (Exception e)
             {
-                misc.errMsg(e.Message);
+                Notification.Error(e.Message);
             }
         }
 
@@ -152,13 +148,13 @@ namespace Lending.Class
             {
                 cB.Text = ""; cB.Items.Clear();
 
-                using (var con = misc.getCon())
+                using (var con = SQL.getConnection())
                 {
                     using (var cmd = con.CreateCommand())
                     {
                         con.Open();
                         cmd.CommandText = cmd.CommandText = cmd.CommandText = "SELECT DISTINCT [Barangay] " +
-                            "FROM [lendDB].[dbo].[countTB] " +
+                            "FROM [zzz_Lending].[dbo].[countTB] " +
                             "WHERE [Country] = @count AND [Province] = @pro AND [Municipality] = @mun " +
                             "ORDER BY [Barangay] ASC";
                         cmd.Parameters.AddWithValue("@count", count.Text);
@@ -178,7 +174,7 @@ namespace Lending.Class
             }
             catch (Exception e)
             {
-                misc.errMsg(e.Message);
+                Notification.Error(e.Message);
             }
         }
 
@@ -187,17 +183,17 @@ namespace Lending.Class
             try
             {
                 byte[] img = null;
-                FileStream fs = new FileStream(misc.imgLoc, FileMode.Open, FileAccess.Read);
+                FileStream fs = new FileStream(Extra.imgLoc, FileMode.Open, FileAccess.Read);
                 BinaryReader br = new BinaryReader(fs);
                 img = br.ReadBytes((int)fs.Length);
 
-                using (var con = misc.getCon())
+                using (var con = SQL.getConnection())
                 {
                     using (var cmd = con.CreateCommand())
                     {
                         con.Open();
                         cmd.CommandText = "SELECT [cusId], [Photo] " +
-                                    "FROM [lendDB].[dbo].[CITB] " +
+                                    "FROM [zzz_Lending].[dbo].[CITB] " +
                                     "WHERE [cusId] = @cusId";
                         cmd.Parameters.AddWithValue("@cusId", cusId);
 
@@ -215,7 +211,7 @@ namespace Lending.Class
             }
             catch (Exception e)
             {
-                misc.errMsg(e.Message);
+                Notification.Error(e.Message);
             }
         }
 
@@ -225,7 +221,7 @@ namespace Lending.Class
         {
             try
             {
-                using (var con = misc.getCon())
+                using (var con = SQL.getConnection())
                 {
                     con.Open();
                     using (var cmd = con.CreateCommand())
@@ -265,7 +261,7 @@ namespace Lending.Class
             }
             catch (Exception e)
             {
-                misc.errMsg(e.Message);
+                Notification.Error(e.Message);
             }
         }
 
@@ -277,15 +273,15 @@ namespace Lending.Class
             {
                 int cnt = 0;
 
-                string sqlQ = "SELECT * FROM [lendDB].[dbo].[CITB] ";
+                string sqlQ = "SELECT * FROM [zzz_Lending].[dbo].[CITB] ";
 
                 if (val == 1)
                 {
-                    sqlQ += "WHERE [cusId] IN (SELECT MAX(X.cusId) FROM [lendDB].[dbo].[CITB] X) ";
+                    sqlQ += "WHERE [cusId] IN (SELECT MAX(X.cusId) FROM [zzz_Lending].[dbo].[CITB] X) ";
                 }
                 else if (val == 2)
                 {
-                    sqlQ += "WHERE [cusId] IN (SELECT MIN(X.cusId) FROM [lendDB].[dbo].[CITB] X) ";
+                    sqlQ += "WHERE [cusId] IN (SELECT MIN(X.cusId) FROM [zzz_Lending].[dbo].[CITB] X) ";
                 }
                 else if (val == 3)
                 {
@@ -303,7 +299,7 @@ namespace Lending.Class
             }
             catch (Exception e)
             {
-                misc.errMsg(e.Message);
+                Notification.Error(e.Message);
             }
         }
 
@@ -311,9 +307,9 @@ namespace Lending.Class
         {
             try
             {
-                misc.selImg(pB);
+                Extra.selImg(pB);
 
-                using (var con = misc.getCon())
+                using (var con = SQL.getConnection())
                 {
                     con.Open();
 
@@ -324,12 +320,12 @@ namespace Lending.Class
                         {
                             using (var cmd = con.CreateCommand())
                             {
-                                cmd.CommandText = "UPDATE [lendDB].[dbo].[CITB] " +
+                                cmd.CommandText = "UPDATE [zzz_Lending].[dbo].[CITB] " +
                                     "SET [Photo] = @img WHERE [cusId] = @cusId";
-                                cmd.Parameters.AddWithValue("@img", misc.imgSelection());
+                                cmd.Parameters.AddWithValue("@img", Extra.imgSelection());
                                 cmd.Parameters.AddWithValue("@cusId", cusId.Text);
                                 cmd.ExecuteNonQuery();
-                                misc.sucMsg("Avatar Updated!");
+                                Notification.Success("Avatar Updated!");
                             }
                         }
                         else
@@ -345,7 +341,7 @@ namespace Lending.Class
             }
             catch (Exception e)
             {
-                misc.errMsg(e.Message);
+                Notification.Error(e.Message);
             }
         }
 
@@ -354,12 +350,12 @@ namespace Lending.Class
             bool stat = false;
             try
             {
-                using (var con = misc.getCon())
+                using (var con = SQL.getConnection())
                 {
                     con.Open();
                     using (var cmd = con.CreateCommand())
                     {
-                        cmd.CommandText = "SELECT * FROM [lendDB].[dbo].[CITB] " +
+                        cmd.CommandText = "SELECT * FROM [zzz_Lending].[dbo].[CITB] " +
                             "WHERE [Firstname] = @first AND [Midname] = @mid AND [Lastname] = @last " +
                             "AND [cusId] <> @id";
                         cmd.Parameters.AddWithValue("@first", first);
@@ -383,7 +379,7 @@ namespace Lending.Class
             }
             catch (Exception e)
             {
-                misc.errMsg(e.Message);
+                Notification.Error(e.Message);
             }
             return stat;
         }
@@ -397,13 +393,13 @@ namespace Lending.Class
                 int id = 0;
 
                 
-                if (misc.isEmptyFields(pane) == true)
+                if (Extra.isEmptyFields(pane) == true)
                 {
-                    misc.invMsg("Missing Fields!");
+                    Notification.Invalid("Missing Fields!");
                 }
                 else
                 {
-                    using (var con = misc.getCon())
+                    using (var con = SQL.getConnection())
                     {
                         con.Open();
 
@@ -412,7 +408,7 @@ namespace Lending.Class
                             using (var cmd = con.CreateCommand())
                             {
                                 cmd.CommandText = "SELECT ISNULL(MAX(A.cusId), 0) [cusId] " +
-                                    "FROM [lendDB].[dbo].[CITB] A";
+                                    "FROM [zzz_Lending].[dbo].[CITB] A";
 
                                 using (var dr = cmd.ExecuteReader())
                                 {
@@ -423,7 +419,7 @@ namespace Lending.Class
 
                                     using (var cmd2 = con.CreateCommand())
                                     {
-                                        cmd2.CommandText = "INSERT INTO [lendDB].[dbo].[CITB] VALUES ( " +
+                                        cmd2.CommandText = "INSERT INTO [zzz_Lending].[dbo].[CITB] VALUES ( " +
                                             "@cusId, @first, @mid, @last, @mob, @fb, @count, @pro, @mun, @bar, " +
                                             "@pur, @bal, @img)";
                                         cmd2.Parameters.AddWithValue("@cusId", id);
@@ -438,16 +434,16 @@ namespace Lending.Class
                                         cmd2.Parameters.AddWithValue("@bar", bar.Text);
                                         cmd2.Parameters.AddWithValue("@pur", pur.Text);
                                         cmd2.Parameters.AddWithValue("@bal", bal.Text);
-                                        cmd2.Parameters.Add(new SqlParameter("@img", misc.imgSelection()));
+                                        cmd2.Parameters.Add(new SqlParameter("@img", Extra.imgSelection()));
 
                                         if (nameExist(first.Text, mid.Text, last.Text, id.ToString()) == true)
                                         {
-                                            misc.errMsg("Customer Name Existed!");
+                                            Notification.Invalid("Customer Name Existed!");
                                         }
                                         else
                                         {
                                             cmd2.ExecuteNonQuery();
-                                            misc.sucMsg("Customer Added!");
+                                            Notification.Success("Customer Added!");
                                             cusId.Text = id.ToString();
                                             but.Text = "UPDATE";
                                             bal.Enabled = false;
@@ -460,7 +456,7 @@ namespace Lending.Class
                         {
                             using (var cmdU = con.CreateCommand())
                             {
-                                cmdU.CommandText = "UPDATE [lendDB].[dbo].[CITB] SET [Firstname] = @first, " +
+                                cmdU.CommandText = "UPDATE [zzz_Lending].[dbo].[CITB] SET [Firstname] = @first, " +
                                     "[Midname] = @mid, [Lastname] = @last, [Phone] = @mob, [FB] = @fb, " +
                                     "[Country] = @count, [Province] = @pro, [Municipality] = @mun, " +
                                     "[Barangay] = @bar, [Street/Purok] = @pur " +
@@ -477,7 +473,7 @@ namespace Lending.Class
                                 cmdU.Parameters.AddWithValue("@bar", bar.Text);
                                 cmdU.Parameters.AddWithValue("@pur", pur.Text);
                                 cmdU.ExecuteNonQuery();
-                                misc.sucMsg("Customer Updated!");
+                                Notification.Success("Customer Updated!");
                             }
                         }
                        
@@ -486,11 +482,11 @@ namespace Lending.Class
             }
             catch (ArgumentException)
             {
-                misc.errMsg("Please Upload your Avatar!");
+                Notification.Error("Please Upload your Avatar!");
             }
             catch (Exception e)
             {
-                misc.errMsg(e.Message);
+                Notification.Error(e.Message);
             }
         }
 
@@ -499,13 +495,13 @@ namespace Lending.Class
         {
             try
             {
-                if (misc.isEmptyFields(pane) == true)
+                if (Extra.isEmptyFields(pane) == true)
                 {
-                    misc.invMsg("Missing Fields!");
+                    Notification.Invalid("Missing Fields!");
                 }
                 else
                 {
-                    if (misc.valPass(pass.Text) == false)
+                    if (Extra.valPass(pass.Text) == false)
                     {
                         info.Visible = true;
                         info.ForeColor = Color.Red;
@@ -515,7 +511,7 @@ namespace Lending.Class
                     else
                     {
                         info.Visible = false;
-                        if (misc.passMatch(pass, pass2) == false)
+                        if (Extra.passMatch(pass, pass2) == false)
                         {
                             info.Visible = true;
                             info.ForeColor = Color.Red;
@@ -526,30 +522,27 @@ namespace Lending.Class
                         {
                             info.Visible = false;
 
-                            if (misc.sqlStat(ConfigurationManager.AppSettings["SQL"].ToString()) == false)
-                                misc.agentSC(ConfigurationManager.AppSettings["SQL"].ToString()).Start();
-
-                            using (var con = misc.getCon())
+                            using (var con = SQL.getConnection())
                             {
                                 using (var cmd = con.CreateCommand())
                                 {
                                     con.Open();
-                                    cmd.CommandText = "SELECT * FROM [lendDB].[dbo].[USRTB] " +
+                                    cmd.CommandText = "SELECT * FROM [zzz_Lending].[dbo].[USRTB] " +
                                         "WHERE Username = @user AND Password = @pass";
                                     cmd.Parameters.AddWithValue("@user", usrTB.Text);
-                                    cmd.Parameters.AddWithValue("@pass", misc.GetMD5(pass.Text));
+                                    cmd.Parameters.AddWithValue("@pass", Extra.GetMD5(pass.Text));
 
                                     using (var dr = cmd.ExecuteReader())
                                     {
                                         if (dr.Read())
                                         {
-                                            mainFrm ma = new mainFrm();
-                                            ma.Show(); misc.clrCont(pane);
+                                            Dashboard ma = new Dashboard();
+                                            ma.Show(); Extra.clrCont(pane);
                                             log.Hide(); log.ShowInTaskbar = false;
                                         }
                                         else
                                         {
-                                            misc.errMsg("Incorrect Credentials!");
+                                            Notification.Invalid("Incorrect Credentials!");
                                             pass.Text = ""; pass2.Text = ""; pass.Focus();
                                         }
                                     }
@@ -561,20 +554,13 @@ namespace Lending.Class
             }
             catch (Exception e)
             {
-                misc.errMsg(e.Message);
+                Notification.Error(e.Message);
             }
         }
 
         public static void delCusInfo()
         {
-            try
-            {
 
-            }
-            catch (Exception e)
-            {
-                misc.errMsg(e.Message);
-            }
         }
     }
 }

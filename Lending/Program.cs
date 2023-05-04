@@ -1,4 +1,5 @@
 ﻿using Lending.Class;
+using Lending.Functions;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -17,24 +18,26 @@ namespace Lending
         [STAThread]
         static void Main()
         {
-           
+            Extra.runAsAdministrator();
+            Extra.createLogFolder();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
             try
             {
-                if (misc.chkCon() != "")
+                if (SQL.connectionString() != "")
                 {
-                    Application.Run(new logFrm());
+                    Application.Run(new Login());
                 }
                 else
                 {
-                    Application.Run(new setFrm());
+                    Application.Run(new Settings());
                 }
             }
             catch (Exception e)
             {
-                misc.errMsg(e.Message);
+                Notification.Error(e.Message);
             }    
         }
     }
