@@ -6,7 +6,6 @@ using System.Data.SqlClient;
 using System;
 using System.Text.RegularExpressions;
 using System.IO;
-using System.Windows.Forms;
 
 namespace Lending.Functions
 {
@@ -21,7 +20,7 @@ namespace Lending.Functions
                 IEnumerable<string> cmd = Regex.Split(path, @"^\s*GO\s*$",
                                      RegexOptions.Multiline | RegexOptions.IgnoreCase);
 
-                using (var con = SQL.getConnection())
+                using (var con = getConnection())
                 {
                     con.Open();
                     foreach (string commandString in cmd)
@@ -36,8 +35,6 @@ namespace Lending.Functions
                     }
 
                     Notification.Success("Application Settings Saved...");
-                    Application.Restart();
-                    Environment.Exit(0);
                 }
             }
             catch (Exception e)

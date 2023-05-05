@@ -23,65 +23,184 @@ namespace Lending.Class
 
                         using (var cmd2 = con.CreateCommand())
                         {
-                            cmd2.CommandText = "IF NOT EXISTS (SELECT A.TABLE_NAME FROM zzz_Lending.INFORMATION_SCHEMA.TABLES A " +
-                                        "WHERE A.TABLE_NAME = 'USRTB') " +
-                                        "BEGIN " +
-                                        "CREATE TABLE [zzz_Lending].[dbo].[USRTB]" +
-                                        "( " +
-                                        "[ID] INT NOT NULL, " +
-                                        "[Username] VARCHAR(20) NOT NULL, " +
-                                        "[Password] VARCHAR(100) NOT NULL, " +
-                                        "[Email]	VARCHAR(50) NULL, " +
-                                        "[EStat] VARCHAR(10) NULL, " +
-                                        "[DateJoin]	VARCHAR(50) NOT NULL, " +
-                                        "[Status] VARCHAR(50) NOT NULL); END " +
+                            cmd2.CommandText =
 
-                                        "IF NOT EXISTS (SELECT A.TABLE_NAME FROM zzz_Lending.INFORMATION_SCHEMA.TABLES A " +
-                                        "WHERE A.TABLE_NAME = 'LOGTB') " +
-                                        "BEGIN " +
-                                        "CREATE TABLE [zzz_Lending].[dbo].[LOGTB] " +
-                                        "( " +
-                                        "[ID] INT NOT NULL, " +
-                                        "[Date] VARCHAR(50) NOT NULL," +
-                                        "[Time] VARCHAR(50) NOT NULL, " +
-                                        "[IP] VARCHAR(100) NOT NULL, " +
-                                        "[PC] VARCHAR(100) NOT NULL, " +
-                                        "[Action] VARCHAR(100) NOT NULL, " +
-                                        "[Table] VARCHAR(100) NOT NULL, " +
-                                        "[TransID] INT NOT NULL, " +
-                                        "[OrigValue] VARCHAR(100) NOT NULL," +
-                                        "[UpdValue] VARCHAR(100) NOT NULL); END " +
+                            #region Company
+                            "IF NOT EXISTS (SELECT A.TABLE_NAME FROM zzz_Lending.INFORMATION_SCHEMA.TABLES A " +
+                            "WHERE A.TABLE_NAME = 'Company') " +
+                            "BEGIN " +
+                            "CREATE TABLE [zzz_Lending].[dbo].[Company]" +
+                            "( " +
+                            "[Id] INT IDENTITY(1,1) PRIMARY KEY, " +
+                            "[Date] [varchar](100) DEFAULT '0000-00-00', " +
+                            "[Parent_Id] INT DEFAULT 0, " +
+                            "[Owner_Id] INT DEFAULT 0, " +
+                            "[Code] [varchar](45) DEFAULT NULL, " +
+                            "[Name] [varchar](100) DEFAULT NULL, " +
+                            "[TIN] [varchar](100) DEFAULT NULL, " +
+                            "[Enable_logs] INT DEFAULT 0, " +
+                            "[Display_per_page] INT DEFAULT 0, " +
+                            "[Last_Update] [varchar](100) DEFAULT '0000-00-00', " +
+                            "[Inactive] INT DEFAULT 0, " +
+                            "[Hash_Id] [varchar](100) DEFAULT NULL " +
+                            "); END " +
+                            #endregion
 
-                                        "IF NOT EXISTS (SELECT A.TABLE_NAME FROM zzz_Lending.INFORMATION_SCHEMA.TABLES A " +
-                                        "WHERE A.TABLE_NAME = 'CITB') " +
-                                        "BEGIN " +
-                                        "CREATE TABLE [zzz_Lending].[dbo].[CITB] " +
-                                        "( " +
-                                        "[cusId] INT NOT NULL, " +
-                                        "[Firstname] VARCHAR(100) NOT NULL, " +
-                                        "[Midname]	VARCHAR(100) NULL, " +
-                                        "[Lastname]	VARCHAR(100) NOT NULL, " +
-                                        "[Phone]	VARCHAR(50)  NOT NULL, " +
-                                        "[FB]		VARCHAR(100) NULL, " +
-                                        "[Country]	VARCHAR(100) NOT NULL, " +
-                                        "[Province]	VARCHAR(100) NOT NULL, " +
-                                        "[Municipality] VARCHAR(100) NOT NULL, " +
-                                        "[Barangay] VARCHAR(100) NOT NULL, " +
-                                        "[Street/Purok] VARCHAR(100) NOT NULL, " +
-                                        "[Balance]	VARCHAR(8000) NOT NULL, " +
-                                        "[Photo]	IMAGE NOT NULL ); END " +
+                            #region Addresses
+                            "IF NOT EXISTS (SELECT A.TABLE_NAME FROM zzz_Lending.INFORMATION_SCHEMA.TABLES A " +
+                            "WHERE A.TABLE_NAME = 'Addresses') " +
+                            "BEGIN " +
+                            "CREATE TABLE [zzz_Lending].[dbo].[Addresses]" +
+                            "( " +
+                            "[Id] INT IDENTITY(1,1) PRIMARY KEY, " +
+                            "[Date] [varchar](100) DEFAULT '0000-00-00', " +
+                            "[User_Id] INT DEFAULT 0, " +
+                            "[Branch_Id] INT DEFAULT 0, " +
+                            "[Type] INT DEFAULT 0, " +
+                            "[Country] VARCHAR(100) NOT NULL, " +
+                            "[Province]	VARCHAR(100) NOT NULL, " +
+                            "[Municipality] VARCHAR(100) NOT NULL, " +
+                            "[Barangay] VARCHAR(100) NOT NULL, " +
+                            "[Street/Purok] VARCHAR(100) NOT NULL, " +
+                            "[ZipCode] VARCHAR(45) NOT NULL, " +
+                            "[Last_Update] [varchar](100) DEFAULT '0000-00-00', " +
+                            "[Inactive] INT DEFAULT 0, " +
+                            "[Hash_Id] [varchar](100) DEFAULT NULL " +
+                            "); END " +
+                            #endregion
 
-                                        "IF NOT EXISTS (SELECT A.ID FROM [zzz_Lending].[dbo].[USRTB] A " +
-                                        "WHERE A.ID = 0) " +
-                                        "BEGIN " +
-                                        "INSERT INTO [zzz_Lending].[dbo].[USRTB] VALUES (" +
-                                        "0, " +
-                                        "'admin', " +
-                                        "'" + Extra.GetMD5("Abcde12") + "', " +
-                                        "'', " +
-                                        "'PENDING', " +
-                                        "'" + DateTime.Now.ToShortDateString() + "', " +
-                                        "'ADMIN' ) END ";
+                            #region Contacts
+                            "IF NOT EXISTS (SELECT A.TABLE_NAME FROM zzz_Lending.INFORMATION_SCHEMA.TABLES A " +
+                            "WHERE A.TABLE_NAME = 'Contacts') " +
+                            "BEGIN " +
+                            "CREATE TABLE [zzz_Lending].[dbo].[Contacts]" +
+                            "( " +
+                            "[Id] INT IDENTITY(1,1) PRIMARY KEY, " +
+                            "[Date] [varchar](100) DEFAULT '0000-00-00', " +
+                            "[User_Id] INT DEFAULT 0, " +
+                            "[Branch_Id] INT DEFAULT 0, " +
+                            "[Type] INT DEFAULT 0, " +
+                            "[Email] VARCHAR(45) DEFAULT NULL, " +
+                            "[FB] VARCHAR(45) DEFAULT NULL, " +
+                            "[Mobile] VARCHAR(45) DEFAULT NULL, " +
+                            "[Telephone] [varchar](45) DEFAULT NULL, " +
+                            "[Secondary] INT DEFAULT 0, " +
+                            "[Email_Verified] INT DEFAULT 0, " +
+                            "[Mobile_Verified] INT DEFAULT 0, " +
+                            "[2FA_ON] INT DEFAULT 0, " +
+                            "[Last_Update] [varchar](100) DEFAULT '0000-00-00', " +
+                            "[Inactive] INT DEFAULT 0, " +
+                            "[Hash_Id] [varchar](100) DEFAULT NULL " +
+                            "); END " +
+                            #endregion
+
+                            #region User
+                            "IF NOT EXISTS (SELECT A.TABLE_NAME FROM zzz_Lending.INFORMATION_SCHEMA.TABLES A " +
+                            "WHERE A.TABLE_NAME = 'User') " +
+                            "BEGIN " +
+                            "CREATE TABLE [zzz_Lending].[dbo].[User]" +
+                            "( " +
+                            "[Id] INT IDENTITY(1,1) PRIMARY KEY, " +
+                            "[Date] [varchar](100) DEFAULT '0000-00-00', " +
+                            "[Branch_Id] INT DEFAULT 0, " +
+                            "[Role_Id] INT DEFAULT 0, " +
+                            "[Username] [varchar](45) DEFAULT NULL, " +
+                            "[Password] [varchar](100) DEFAULT NULL, " +
+                            "[FirstName] [varchar](45) DEFAULT NULL, " +
+                            "[MiddleName] [varchar](45) DEFAULT NULL, " +
+                            "[LastName] [varchar](45) DEFAULT NULL, " +
+                            "[Date_Hired] [varchar](100) DEFAULT '0000-00-00', " +
+                            "[Photo] [image] DEFAULT NULL, " +
+                            "[Last_Update] [varchar](100) DEFAULT '0000-00-00', " +
+                            "[Inactive] INT DEFAULT 0, " +
+                            "[Hash_Id] [varchar](100) DEFAULT NULL " +
+                            "); END " +
+                            #endregion
+
+                            #region User_Branch
+                            "IF NOT EXISTS (SELECT A.TABLE_NAME FROM zzz_Lending.INFORMATION_SCHEMA.TABLES A " +
+                            "WHERE A.TABLE_NAME = 'User_Branch') " +
+                            "BEGIN " +
+                            "CREATE TABLE [zzz_Lending].[dbo].[User_Branch]" +
+                            "( " +
+                            "[Id] INT IDENTITY(1,1) PRIMARY KEY, " +
+                            "[User_Id] INT DEFAULT 0, " +
+                            "[Branch_Id] INT DEFAULT 0, " +
+                            "[Inactive] INT DEFAULT 0 " +
+                            "); END " +
+                            #endregion
+
+                            #region User_Type
+                            "IF NOT EXISTS (SELECT A.TABLE_NAME FROM zzz_Lending.INFORMATION_SCHEMA.TABLES A " +
+                            "WHERE A.TABLE_NAME = 'User_Type') " +
+                            "BEGIN " +
+                            "CREATE TABLE [zzz_Lending].[dbo].[User_Type]" +
+                            "( " +
+                            "[Id] INT IDENTITY(1,1) PRIMARY KEY, " +
+                            "[Name] VARCHAR(50) DEFAULT NULL, " +
+                            "[Inactive] INT DEFAULT 0 " +
+                            "); END " +
+                            #endregion
+
+                            #region User_Session
+                            "IF NOT EXISTS (SELECT A.TABLE_NAME FROM zzz_Lending.INFORMATION_SCHEMA.TABLES A " +
+                            "WHERE A.TABLE_NAME = 'User_Session') " +
+                            "BEGIN " +
+                            "CREATE TABLE [zzz_Lending].[dbo].[User_Session] " +
+                            "( " +
+                            "[Id] INT IDENTITY(1,1) PRIMARY KEY, " +
+                            "[User_Id] INT DEFAULT 0, " +
+                            "[Branch_Id] INT DEFAULT 0, " +
+                            "[Date] VARCHAR(50) DEFAULT '0000-00-00', " +
+                            "[Time] VARCHAR(50) DEFAULT '00:00:00', " +
+                            "[IP] VARCHAR(100) DEFAULT NULL, " +
+                            "[PC] VARCHAR(100) DEFAULT NULL, " +
+                            "[Action_Id] INT DEFAULT 0, " +
+                            "[Hash_Id] [varchar](100) DEFAULT NULL " +
+                            "); END " +
+                            #endregion
+
+                            #region Customer
+                            "IF NOT EXISTS (SELECT A.TABLE_NAME FROM zzz_Lending.INFORMATION_SCHEMA.TABLES A " +
+                            "WHERE A.TABLE_NAME = 'Customer') " +
+                            "BEGIN " +
+                            "CREATE TABLE [zzz_Lending].[dbo].[Customer]" +
+                            "( " +
+                            "[Id] INT IDENTITY(1,1) PRIMARY KEY, " +
+                            "[Date] [varchar](100) DEFAULT '0000-00-00', " +
+                            "[Branch_Id] INT DEFAULT 0, " +
+                            "[Role_Id] INT DEFAULT 0, " +
+                            "[FirstName] [varchar](45) DEFAULT NULL, " +
+                            "[MiddleName] [varchar](45) DEFAULT NULL, " +
+                            "[LastName] [varchar](45) DEFAULT NULL, " +
+                            "[Balance] [numeric](19, 2) DEFAULT 0, " +
+                            "[Photo] [image] DEFAULT NULL, " +
+                            "[Last_Update] [varchar](100) DEFAULT '0000-00-00', " +
+                            "[Inactive] INT DEFAULT 0, " +
+                            "[Hash_Id] [varchar](100) DEFAULT NULL " +
+                            "); END " +
+                            #endregion
+
+                            #region Adding Default User_Type
+                            "IF NOT EXISTS (SELECT Name FROM [zzz_Lending].[dbo].[User_Type] A " +
+                            "WHERE  Name = 'Company') " +
+                            "BEGIN " +
+                            "INSERT INTO [zzz_Lending].[dbo].[User_Type] VALUES ('Company', 0) " +
+                            "END " +
+
+                            "IF NOT EXISTS (SELECT Name FROM [zzz_Lending].[dbo].[User_Type] A " +
+                            "WHERE  Name = 'Customer') " +
+                            "BEGIN " +
+                            "INSERT INTO [zzz_Lending].[dbo].[User_Type] VALUES ('Customer', 0) " +
+                            "END " +
+
+                            "IF NOT EXISTS (SELECT Name FROM [zzz_Lending].[dbo].[User_Type] A " +
+                            "WHERE  Name = 'User') " +
+                            "BEGIN " +
+                            "INSERT INTO [zzz_Lending].[dbo].[User_Type] VALUES ('User', 0) " +
+                            "END ";
+                            #endregion
+
                             cmd2.ExecuteNonQuery();
                             SQL.addCountTB(sql);
                         }
