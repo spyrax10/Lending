@@ -18,48 +18,45 @@ namespace Lending.Functions.Models
 
         public static List<User_Type> GetUserType()
         {
-            if (_userTypes == null)
+            _userTypes = new List<User_Type>();
+
+            try
             {
-                _userTypes = new List<User_Type>();
-
-                try
+                using (var con = SQL.getConnection())
                 {
-                    using (var con = SQL.getConnection())
+                    con.Open();
+
+                    using (var cmd = con.CreateCommand())
                     {
-                        con.Open();
+                        cmd.CommandText = "SELECT * FROM [zzz_Lending].[dbo].[User_Type]";
 
-                        using (var cmd = con.CreateCommand())
+                        using (var dr = cmd.ExecuteReader())
                         {
-                            cmd.CommandText = "SELECT * FROM [zzz_Lending].[dbo].[User_Type]";
-
-                            using (var dr = cmd.ExecuteReader())
+                            while (dr.Read())
                             {
-                                while (dr.Read())
-                                {
-                                    User_Type type = new User_Type();
-                                    type.Id = Int32.Parse(dr["Id"].ToString());
-                                    type.Name = dr["Name"].ToString();
-                                    type.Inactive = Int32.Parse(dr["Inactive"].ToString());
-                                    _userTypes.Add(type);
-                                }
+                                User_Type type = new User_Type();
+                                type.Id = Int32.Parse(dr["Id"].ToString());
+                                type.Name = dr["Name"].ToString();
+                                type.Inactive = Int32.Parse(dr["Inactive"].ToString());
+                                _userTypes.Add(type);
                             }
                         }
                     }
                 }
-                catch (Exception e)
+            }
+            catch (Exception e)
+            {
+                Extra.createLogFile("[Error][UserTypes.GetUserType]" + e.Message);
+                if (e is SqlException)
                 {
-                    Extra.createLogFile("[Error][UserTypes.GetUserType]" + e.Message);
-                    if (e is SqlException)
-                    {
-                        Notification.Error("Can't Connect To Server! Please Try Again!");
-                    }
-                    else
-                    {
-                        Notification.Error("Code Error! Please contact the Developer!");
-                    }
-
-                    _userTypes = null;
+                    Notification.Error("Can't Connect To Server! Please Try Again!");
                 }
+                else
+                {
+                    Notification.Error("Code Error! Please contact the Developer!");
+                }
+
+                _userTypes = null;
             }
 
             return _userTypes;

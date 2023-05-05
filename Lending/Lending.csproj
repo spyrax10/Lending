@@ -66,6 +66,12 @@
     <Compile Include="Forms\Customer.Designer.cs">
       <DependentUpon>Customer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Registration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Registration.Designer.cs">
+      <DependentUpon>Registration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Functions\AppSettings.cs" />
     <Compile Include="Functions\Builder.cs" />
     <Compile Include="Functions\Models\Addresses.cs" />
@@ -110,6 +116,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dashboard2.resx">
       <DependentUpon>Dashboard2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Registration.resx">
+      <DependentUpon>Registration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Settings.resx">
       <DependentUpon>Settings.cs</DependentUpon>
@@ -162,6 +171,7 @@
     <None Include="Resources\aha_chart.png" />
     <None Include="Resources\cust_saleList.png" />
     <None Include="Resources\ios_setup.png" />
+    <None Include="Resources\boot_add.png" />
     <Content Include="Scripts\countTB%28SQL12%29.sql" />
     <Content Include="Scripts\countTB%28SQL19%29.sql" />
     <None Include="Resources\Button-Close-icon %2816%29.png" />

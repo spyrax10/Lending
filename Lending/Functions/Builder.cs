@@ -11,8 +11,6 @@ namespace Lending.Class
         {
             try
             {
-                string sql = ConfigurationManager.AppSettings["SQL"].ToString();
-
                 using (var con = SQL.getConnection())
                 {
                     using (var cmd = con.CreateCommand())
@@ -204,12 +202,6 @@ namespace Lending.Class
 
                             cmd2.ExecuteNonQuery();
 
-                            if (SQL.addCountTB(sql))
-                            {
-                                Notification.Success("Application Settings Saved...");
-                                Application.Restart();
-                                Environment.Exit(0);
-                            }
                         }
                     }
                 }

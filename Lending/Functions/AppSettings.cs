@@ -1,17 +1,13 @@
-﻿
-using System.Net;
+﻿using System.Net;
 using System;
 using System.Configuration;
-using System.Linq;
 using System.Reflection;
 
 namespace Lending.Functions
 {
     public static class AppSettings
     {
-
-        [Obsolete]
-        public static string ip = Dns.GetHostByName(Environment.MachineName).AddressList[0].ToString();
+        public static string ip = Dns.GetHostEntry(Environment.MachineName).AddressList[0].ToString();
         public static string pc = Environment.MachineName;
 
         public static void appSettings(string server, string user, string pass, string path, bool useAuthen = false)

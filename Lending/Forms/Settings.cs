@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Configuration;
 using System.Windows.Forms;
 using Lending.Class;
+using Lending.Forms;
 using Lending.Functions;
+using Lending.Functions.Models;
 
 namespace Lending
 {
@@ -68,6 +71,17 @@ namespace Lending
             if (SQL.connectionOpen())
             {
                 Builder.CreateAppDatabase();
+
+                if (SQL.addCountTB(ConfigurationManager.AppSettings["SQL"].ToString()))
+                {
+                    User_Type.GetUserType();
+                    zzz_Addresses.GetPlaces();
+
+                    Notification.Success("Application Settings Saved...");
+                    Registration registration = new Registration();
+                    registration.Show();
+                    //this.Close();
+                }
             }
             else
             {

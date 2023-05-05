@@ -37,15 +37,15 @@
             this.PaneDue = new System.Windows.Forms.Panel();
             this.PaneBot = new System.Windows.Forms.Panel();
             this.PaneTop = new System.Windows.Forms.Panel();
-            this.BTNClose = new System.Windows.Forms.Button();
-            this.PBLogo = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.HeadStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.optionsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.FileSep = new System.Windows.Forms.ToolStripSeparator();
-            this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.BTNClose = new System.Windows.Forms.Button();
+            this.PBLogo = new System.Windows.Forms.PictureBox();
+            this.optionsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.generalSetupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripCustomer = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,8 +53,8 @@
             this.salesReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PaneMain.SuspendLayout();
             this.PaneTop.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PBLogo)).BeginInit();
             this.HeadStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PBLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // PaneMain
@@ -151,6 +151,59 @@
             this.PaneTop.Size = new System.Drawing.Size(798, 42);
             this.PaneTop.TabIndex = 0;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(46, 8);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(104, 25);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Dashboard";
+            // 
+            // HeadStrip
+            // 
+            this.HeadStrip.BackColor = System.Drawing.Color.White;
+            this.HeadStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.HeadStrip.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HeadStrip.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
+            this.HeadStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.HeadStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.optionsToolStripMenuItem});
+            this.HeadStrip.Location = new System.Drawing.Point(0, 42);
+            this.HeadStrip.Name = "HeadStrip";
+            this.HeadStrip.Size = new System.Drawing.Size(221, 36);
+            this.HeadStrip.TabIndex = 1;
+            this.HeadStrip.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.BackColor = System.Drawing.Color.White;
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.optionsToolStripMenuItem1,
+            this.FileSep,
+            this.logOutToolStripMenuItem});
+            this.fileToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(57, 30);
+            this.fileToolStripMenuItem.Text = "&File";
+            // 
+            // FileSep
+            // 
+            this.FileSep.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.FileSep.Name = "FileSep";
+            this.FileSep.Size = new System.Drawing.Size(178, 6);
+            // 
+            // optionsToolStripMenuItem
+            // 
+            this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.setupToolStripMenuItem,
+            this.reportsToolStripMenuItem});
+            this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(153, 30);
+            this.optionsToolStripMenuItem.Text = "&Administration";
+            // 
             // BTNClose
             // 
             this.BTNClose.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -176,73 +229,20 @@
             this.PBLogo.TabIndex = 1;
             this.PBLogo.TabStop = false;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(46, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(104, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Dashboard";
-            // 
-            // HeadStrip
-            // 
-            this.HeadStrip.BackColor = System.Drawing.Color.White;
-            this.HeadStrip.Dock = System.Windows.Forms.DockStyle.None;
-            this.HeadStrip.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HeadStrip.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
-            this.HeadStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.HeadStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem,
-            this.optionsToolStripMenuItem});
-            this.HeadStrip.Location = new System.Drawing.Point(0, 42);
-            this.HeadStrip.Name = "HeadStrip";
-            this.HeadStrip.Size = new System.Drawing.Size(218, 33);
-            this.HeadStrip.TabIndex = 1;
-            this.HeadStrip.Text = "menuStrip1";
-            // 
-            // fileToolStripMenuItem
-            // 
-            this.fileToolStripMenuItem.BackColor = System.Drawing.Color.White;
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.optionsToolStripMenuItem1,
-            this.FileSep,
-            this.logOutToolStripMenuItem});
-            this.fileToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(57, 29);
-            this.fileToolStripMenuItem.Text = "&File";
-            // 
             // optionsToolStripMenuItem1
             // 
             this.optionsToolStripMenuItem1.Image = global::Lending.Properties.Resources.prog_settings;
             this.optionsToolStripMenuItem1.Name = "optionsToolStripMenuItem1";
-            this.optionsToolStripMenuItem1.Size = new System.Drawing.Size(270, 34);
+            this.optionsToolStripMenuItem1.Size = new System.Drawing.Size(181, 34);
             this.optionsToolStripMenuItem1.Text = "&Options";
-            // 
-            // FileSep
-            // 
-            this.FileSep.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.FileSep.Name = "FileSep";
-            this.FileSep.Size = new System.Drawing.Size(267, 6);
             // 
             // logOutToolStripMenuItem
             // 
             this.logOutToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.logOutToolStripMenuItem.Image = global::Lending.Properties.Resources.prog_logout;
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(181, 34);
             this.logOutToolStripMenuItem.Text = "&LogOut";
-            // 
-            // optionsToolStripMenuItem
-            // 
-            this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.setupToolStripMenuItem,
-            this.reportsToolStripMenuItem});
-            this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(153, 29);
-            this.optionsToolStripMenuItem.Text = "&Administration";
             // 
             // setupToolStripMenuItem
             // 
@@ -251,21 +251,21 @@
             this.ToolStripCustomer});
             this.setupToolStripMenuItem.Image = global::Lending.Properties.Resources.sov_general;
             this.setupToolStripMenuItem.Name = "setupToolStripMenuItem";
-            this.setupToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.setupToolStripMenuItem.Size = new System.Drawing.Size(180, 34);
             this.setupToolStripMenuItem.Text = "&Setup";
             // 
             // generalSetupToolStripMenuItem
             // 
             this.generalSetupToolStripMenuItem.Image = global::Lending.Properties.Resources.ios_setup;
             this.generalSetupToolStripMenuItem.Name = "generalSetupToolStripMenuItem";
-            this.generalSetupToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.generalSetupToolStripMenuItem.Size = new System.Drawing.Size(261, 34);
             this.generalSetupToolStripMenuItem.Text = "&General Setup";
             // 
             // ToolStripCustomer
             // 
             this.ToolStripCustomer.Image = global::Lending.Properties.Resources.prog_setup;
             this.ToolStripCustomer.Name = "ToolStripCustomer";
-            this.ToolStripCustomer.Size = new System.Drawing.Size(270, 34);
+            this.ToolStripCustomer.Size = new System.Drawing.Size(261, 34);
             this.ToolStripCustomer.Text = "&Customer\'s Setup";
             this.ToolStripCustomer.Click += new System.EventHandler(this.ToolStripCustomer_Click);
             // 
@@ -275,7 +275,7 @@
             this.salesReportToolStripMenuItem});
             this.reportsToolStripMenuItem.Image = global::Lending.Properties.Resources.aha_chart;
             this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
-            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(180, 34);
             this.reportsToolStripMenuItem.Text = "&Reports";
             // 
             // salesReportToolStripMenuItem
@@ -302,9 +302,9 @@
             this.PaneMain.PerformLayout();
             this.PaneTop.ResumeLayout(false);
             this.PaneTop.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PBLogo)).EndInit();
             this.HeadStrip.ResumeLayout(false);
             this.HeadStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PBLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
