@@ -38,6 +38,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.DirectoryServices" />
@@ -67,7 +68,17 @@
     </Compile>
     <Compile Include="Functions\AppSettings.cs" />
     <Compile Include="Functions\Builder.cs" />
+    <Compile Include="Functions\Models\Addresses.cs" />
+    <Compile Include="Functions\Models\Company.cs" />
+    <Compile Include="Functions\Models\Contacts.cs" />
+    <Compile Include="Functions\Models\Customer.cs" />
+    <Compile Include="Functions\Models\User.cs" />
+    <Compile Include="Functions\Models\User_Branch.cs" />
+    <Compile Include="Functions\Models\User_Session.cs" />
+    <Compile Include="Functions\Models\User_Type.cs" />
+    <Compile Include="Functions\Models\zzz_Addresses.cs" />
     <Compile Include="Functions\Query.cs" />
+    <Compile Include="Functions\Query2.cs" />
     <Compile Include="Functions\Extra.cs" />
     <Compile Include="Functions\Notification.cs" />
     <Compile Include="Functions\SQL.cs" />

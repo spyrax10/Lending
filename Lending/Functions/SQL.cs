@@ -11,8 +11,9 @@ namespace Lending.Functions
 {
     public static class SQL
     {
-        public static void addCountTB(string sql)
+        public static bool addCountTB(string sql)
         {
+            bool added = false;
             try
             {
                 string path = File.ReadAllText(@"..\..\Scripts\countTB(" + sql + ").sql");
@@ -34,7 +35,7 @@ namespace Lending.Functions
                         }
                     }
 
-                    Notification.Success("Application Settings Saved...");
+                    added = true;
                 }
             }
             catch (Exception e)
@@ -42,6 +43,8 @@ namespace Lending.Functions
                 AppSettings.delAppSettings();
                 Notification.Error(e.Message);
             }
+
+            return added;
         }
 
         public static List<string> getSql()

@@ -1,6 +1,7 @@
 ﻿using Lending.Functions;
 using System;
 using System.Configuration;
+using System.Windows.Forms;
 
 namespace Lending.Class
 {
@@ -202,7 +203,13 @@ namespace Lending.Class
                             #endregion
 
                             cmd2.ExecuteNonQuery();
-                            SQL.addCountTB(sql);
+
+                            if (SQL.addCountTB(sql))
+                            {
+                                Notification.Success("Application Settings Saved...");
+                                Application.Restart();
+                                Environment.Exit(0);
+                            }
                         }
                     }
                 }

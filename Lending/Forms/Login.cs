@@ -28,7 +28,7 @@ namespace Lending
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
-                Query.chkLogIn(tBUser, tBPass, tBPass2, lblInfo, paneMain, this);
+                Query2.chkLogIn(tBUser, tBPass, tBPass2, lblInfo, paneMain, this);
             }
         }
 
