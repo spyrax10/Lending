@@ -83,7 +83,6 @@
     <Compile Include="Functions\Models\User_Session.cs" />
     <Compile Include="Functions\Models\User_Type.cs" />
     <Compile Include="Functions\Models\zzz_Addresses.cs" />
-    <Compile Include="Functions\Query.cs" />
     <Compile Include="Functions\Query2.cs" />
     <Compile Include="Functions\Extra.cs" />
     <Compile Include="Functions\Notification.cs" />

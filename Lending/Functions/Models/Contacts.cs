@@ -25,5 +25,44 @@ namespace Lending.Functions.Models
         public string Last_Update { get; set; } = "0000-00-00";
         public int Inactive { get; set; } = 0;
         public string Hash_Id { get; set; } = null;
+
+        public bool ContactExists()
+        {
+            bool exists = false;
+
+            try
+            {
+                using (var con = SQL.getConnection())
+                {
+                    con.Open();
+
+                    using (var cmd = con.CreateCommand())
+                    {
+                        string qry = "SELECT A.Id FROM [zzz_Lending].[dbo].[Contacts] A " +
+                          "WHERE ";
+
+                        if (Email != null)
+                        {
+                            qry += "A.Email = @email";
+                        }
+                        else if (Mobile != null)
+                        {
+                            qry += "A.Mobile = @mobile";
+                        }
+
+                        cmd.CommandText = qry;
+
+                        cmd.Parameters.AddWithValue("email", Email);
+                        cmd.Parameters.AddWithValue ("mobile", Mobile);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Notification.Error(e.Message);
+            }
+
+            return exists;
+        }
     }
 }

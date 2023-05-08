@@ -156,5 +156,36 @@ namespace Lending.Functions
 
             return con;
         }
+
+        public static bool deleteLastInsertedId(int id = 0, string table_name = "")
+        {
+            bool deleted = false;
+
+            try
+            {
+                using (var con = getConnection())
+                {
+                    con.Open();
+
+                    using (var cmd = con.CreateCommand())
+                    {
+                        cmd.CommandText = @"DELETE FROM [zzz_Lending].[dbo].[" + table_name + "] " +
+                            "WHERE Id = @id;";
+
+                        cmd.Parameters.AddWithValue("id", id);
+                        cmd.Parameters.AddWithValue("table_name", id);
+
+                        cmd.ExecuteNonQuery();
+                        deleted = true;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Notification.Error(e.Message);
+            }
+
+            return deleted;
+        }
     }
 }

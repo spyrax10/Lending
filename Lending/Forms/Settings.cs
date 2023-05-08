@@ -77,10 +77,12 @@ namespace Lending
                     User_Type.GetUserType();
                     zzz_Addresses.GetPlaces();
 
+                    this.ShowInTaskbar = false;
+
                     Notification.Success("Application Settings Saved...");
+                    
                     Registration registration = new Registration();
-                    registration.Show();
-                    //this.Close();
+                    registration.ShowDialog();
                 }
             }
             else

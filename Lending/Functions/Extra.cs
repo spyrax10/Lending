@@ -1,6 +1,7 @@
 ﻿using Lending.Functions;
 using System;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -108,6 +109,46 @@ namespace Lending.Class
             return img = br.ReadBytes((int)fs.Length);
         }
 
+        public static void ErrorTextBox(Control component)
+        {
+            foreach (Control c in component.Controls)
+            {
+                if (c is Panel)
+                {
+                    foreach (Control d in c.Controls)
+                    {
+                        if (d is TextBox || d is ComboBox)
+                        {
+                            if (d.Text == "" && !c.Focused)
+                            {
+                                d.BackColor = Color.OrangeRed;
+                                d.ForeColor = Color.White;
+                            }
+                            else
+                            {
+                                d.BackColor = Color.White;
+                                d.ForeColor = Color.Black;
+                            }
+                        }
+                    }
+                }
+
+                if (c is TextBox || c is ComboBox)
+                {
+                    if (c.Text == "" && !c.Focused)
+                    {
+                        c.BackColor = Color.OrangeRed;
+                        c.ForeColor = Color.White;
+                    }
+                    else
+                    {
+                        c.BackColor = Color.White;
+                        c.ForeColor = Color.Black;
+                    }
+                }
+            }
+        }
+
         public static void clrCont(Control comp)
         {
             comp.Controls.OfType<TextBox>().ToList().ForEach(t => t.Clear());
@@ -120,11 +161,7 @@ namespace Lending.Class
                 {
                     foreach (Control d in c.Controls)
                     {
-                        if (d is TextBox)
-                        {
-                            d.Text = "";
-                        }
-                        if (d is ComboBox)
+                        if (d is TextBox || d is ComboBox)
                         {
                             d.Text = "";
                         }
