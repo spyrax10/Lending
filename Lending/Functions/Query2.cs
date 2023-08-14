@@ -528,7 +528,7 @@ namespace Lending.Class
                                 using (var cmd = con.CreateCommand())
                                 {
                                     con.Open();
-                                    cmd.CommandText = "SELECT * FROM [zzz_Lending].[dbo].[USRTB] " +
+                                    cmd.CommandText = "SELECT * FROM [zzz_Lending].[dbo].[User] " +
                                         "WHERE Username = @user AND Password = @pass";
                                     cmd.Parameters.AddWithValue("@user", usrTB.Text);
                                     cmd.Parameters.AddWithValue("@pass", Extra.GetMD5(pass.Text));

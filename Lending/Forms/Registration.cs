@@ -98,12 +98,17 @@ namespace Lending.Forms
                 
                 Notification.Invalid("Missing Fields...");
             }
+            else if (!ChkTC.Checked)
+            {
+                Notification.Invalid("Please Read and Agree to our Terms & Conditions!");
+            }
             else
             {
                 Company company = new Company();
 
                 company.Code = tBCode.Text;
                 company.Name = tBName.Text;
+                company.Last_Update = DateTime.Now.ToString("yyyy-MM-dd");
 
                 Addresses addresses = new Addresses();
 
@@ -113,19 +118,23 @@ namespace Lending.Forms
                 addresses.Barangay = cBBar.Text;
                 addresses.Street = tBStreet.Text;
                 addresses.ZipCode = tBZip.Text;
+                addresses.Last_Update = DateTime.Now.ToString("yyyy-MM-dd");
 
                 User user = new User();
                 user.FirstName = tBFirstName.Text;
                 user.MiddleName = tBMidName.Text;
                 user.LastName = tBLastName.Text;
                 user.Username = "admin";
-                user.Password = Extra.GetMD5("admin");
+                user.Password = Extra.GetMD5("Abcde12");
+                user.Last_Update = DateTime.Now.ToString("yyyy-MM-dd");
 
                 Contacts contacts = new Contacts();
                 contacts.Email = tBEmail.Text;
                 contacts.Mobile = tBMobile.Text;
+                contacts.Type = 1;
+                contacts.Last_Update = DateTime.Now.ToString("yyyy-MM-dd");
 
-                company.CreateNewCompany(company, user);
+                company.CreateNewCompany(company, user, contacts);
             }
         }
 

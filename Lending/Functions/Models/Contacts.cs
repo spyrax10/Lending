@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lending.Forms;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace Lending.Functions.Models
@@ -6,7 +7,7 @@ namespace Lending.Functions.Models
     public class Contacts
     {
         [Key]
-        public string Id { get; set; }
+        public int Id { get; set; }
 
         public string Date { get; set; } = DateTime.Now.ToString("yyyy-MM-dd");
         public int User_Id { get; set; } = 0;
@@ -63,6 +64,58 @@ namespace Lending.Functions.Models
             }
 
             return exists;
+        }
+
+        public int NewContact(Company company, User user)
+        {
+            try
+            {
+                using (var con = SQL.getConnection())
+                {
+                    con.Open();
+
+                    using (var cmd = con.CreateCommand())
+                    {
+                        cmd.CommandText = @"INSERT INTO [zzz_Lending].[dbo].[Contacts](
+                            Date, User_Id, Branch_Id, Type, Email, Mobile) 
+                        VALUES(@date, @user_id, @branch_id, @type, 
+                            @email, @mobile)
+                        SELECT SCOPE_IDENTITY() AS last_inserted_id;";
+
+                        cmd.Parameters.AddWithValue("date", Date);
+                        cmd.Parameters.AddWithValue("branch_id", company.Id);
+                        cmd.Parameters.AddWithValue("user_id", user.Id);
+                        cmd.Parameters.AddWithValue("type", Type);
+                        cmd.Parameters.AddWithValue("email", Email);
+                        cmd.Parameters.AddWithValue("mobile", Mobile);
+
+                        Id = Convert.ToInt32(cmd.ExecuteScalar());
+
+                        if (Id > 0)
+                        {
+                            Notification.Success("Company Created...");
+                            Dashboard home = new Dashboard();
+                            home.ShowDialog();
+                            
+                        }
+                        else
+                        {
+                            SQL.deleteLastInsertedId(company.Id, "Company");
+                            SQL.deleteLastInsertedId(user.Id, "User");
+                        }
+
+                    }
+                }
+            }
+            catch(Exception e)
+            {
+                Notification.Error(e.Message);
+
+                SQL.deleteLastInsertedId(company.Id, "Company");
+                SQL.deleteLastInsertedId(user.Id, "User");
+            }
+
+            return Id;
         }
     }
 }

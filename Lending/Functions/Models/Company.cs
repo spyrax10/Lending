@@ -86,7 +86,7 @@ namespace Lending.Functions.Models
             return exists;
         }
 
-        public int CreateNewCompany(Company company, User user)
+        public int CreateNewCompany(Company company, User user, Contacts contacts)
         {
             try
             {
@@ -108,7 +108,7 @@ namespace Lending.Functions.Models
 
                         if (Id > 0)
                         {
-                            user.NewUser(company);
+                            user.NewUser(company, contacts);
                         }
                     }
                 }

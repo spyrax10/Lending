@@ -290,7 +290,8 @@ namespace Lending.Class
             }
             catch (Exception e)
             {
-                Notification.Error(e.Message);            }
+                Notification.Error(e.Message);            
+            }
         }
     }
 }

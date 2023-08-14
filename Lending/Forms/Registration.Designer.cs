@@ -29,11 +29,27 @@
         private void InitializeComponent()
         {
             this.PaneMain = new System.Windows.Forms.Panel();
+            this.label15 = new System.Windows.Forms.Label();
+            this.PaneContact = new System.Windows.Forms.Panel();
+            this.tBMobile = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.tBEmail = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.btnRegister = new System.Windows.Forms.Button();
+            this.LnkTC = new System.Windows.Forms.LinkLabel();
+            this.ChkTC = new System.Windows.Forms.CheckBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.PaneInfo = new System.Windows.Forms.Panel();
+            this.tBLastName = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.tBMidName = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.tBFirstName = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tBName = new System.Windows.Forms.TextBox();
             this.tBCode = new System.Windows.Forms.TextBox();
-            this.tBStreet = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.PaneTop = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
@@ -44,6 +60,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.tBZip = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.tBStreet = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.cBMun = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -51,29 +68,12 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.cBCountry = new System.Windows.Forms.ComboBox();
-            this.PaneInfo = new System.Windows.Forms.Panel();
-            this.label11 = new System.Windows.Forms.Label();
-            this.ChkTC = new System.Windows.Forms.CheckBox();
-            this.LnkTC = new System.Windows.Forms.LinkLabel();
-            this.btnRegister = new System.Windows.Forms.Button();
-            this.label12 = new System.Windows.Forms.Label();
-            this.tBFirstName = new System.Windows.Forms.TextBox();
-            this.tBMidName = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.tBLastName = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.PaneContact = new System.Windows.Forms.Panel();
-            this.tBMobile = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.tBEmail = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
             this.PaneMain.SuspendLayout();
+            this.PaneContact.SuspendLayout();
+            this.PaneInfo.SuspendLayout();
             this.PaneTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBLogo)).BeginInit();
             this.PaneAddress.SuspendLayout();
-            this.PaneInfo.SuspendLayout();
-            this.PaneContact.SuspendLayout();
             this.SuspendLayout();
             // 
             // PaneMain
@@ -97,6 +97,206 @@
             this.PaneMain.Name = "PaneMain";
             this.PaneMain.Size = new System.Drawing.Size(678, 708);
             this.PaneMain.TabIndex = 0;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label15.Location = new System.Drawing.Point(358, 449);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(246, 28);
+            this.label15.TabIndex = 18;
+            this.label15.Text = "Company Contact Details:";
+            // 
+            // PaneContact
+            // 
+            this.PaneContact.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PaneContact.Controls.Add(this.tBMobile);
+            this.PaneContact.Controls.Add(this.label16);
+            this.PaneContact.Controls.Add(this.tBEmail);
+            this.PaneContact.Controls.Add(this.label17);
+            this.PaneContact.Location = new System.Drawing.Point(363, 466);
+            this.PaneContact.Name = "PaneContact";
+            this.PaneContact.Size = new System.Drawing.Size(292, 170);
+            this.PaneContact.TabIndex = 17;
+            // 
+            // tBMobile
+            // 
+            this.tBMobile.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tBMobile.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tBMobile.ForeColor = System.Drawing.Color.Black;
+            this.tBMobile.Location = new System.Drawing.Point(16, 117);
+            this.tBMobile.MaxLength = 200;
+            this.tBMobile.Name = "tBMobile";
+            this.tBMobile.Size = new System.Drawing.Size(258, 34);
+            this.tBMobile.TabIndex = 13;
+            this.tBMobile.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tBCode_KeyUp);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label16.Location = new System.Drawing.Point(194, 83);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(80, 28);
+            this.label16.TabIndex = 8;
+            this.label16.Text = "Mobile:";
+            // 
+            // tBEmail
+            // 
+            this.tBEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tBEmail.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tBEmail.ForeColor = System.Drawing.Color.Black;
+            this.tBEmail.Location = new System.Drawing.Point(16, 45);
+            this.tBEmail.MaxLength = 200;
+            this.tBEmail.Name = "tBEmail";
+            this.tBEmail.Size = new System.Drawing.Size(258, 34);
+            this.tBEmail.TabIndex = 12;
+            this.tBEmail.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tBCode_KeyUp);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label17.Location = new System.Drawing.Point(209, 14);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(65, 28);
+            this.label17.TabIndex = 6;
+            this.label17.Text = "Email:";
+            // 
+            // btnRegister
+            // 
+            this.btnRegister.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRegister.FlatAppearance.BorderColor = System.Drawing.Color.Blue;
+            this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegister.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegister.Location = new System.Drawing.Point(549, 644);
+            this.btnRegister.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnRegister.Name = "btnRegister";
+            this.btnRegister.Size = new System.Drawing.Size(106, 45);
+            this.btnRegister.TabIndex = 16;
+            this.btnRegister.Text = "Register";
+            this.btnRegister.UseVisualStyleBackColor = true;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
+            // 
+            // LnkTC
+            // 
+            this.LnkTC.AutoSize = true;
+            this.LnkTC.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LnkTC.Location = new System.Drawing.Point(265, 654);
+            this.LnkTC.Name = "LnkTC";
+            this.LnkTC.Size = new System.Drawing.Size(193, 25);
+            this.LnkTC.TabIndex = 15;
+            this.LnkTC.TabStop = true;
+            this.LnkTC.Text = "Terms and Conditions";
+            // 
+            // ChkTC
+            // 
+            this.ChkTC.AutoSize = true;
+            this.ChkTC.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ChkTC.Location = new System.Drawing.Point(19, 653);
+            this.ChkTC.Name = "ChkTC";
+            this.ChkTC.Size = new System.Drawing.Size(257, 29);
+            this.ChkTC.TabIndex = 14;
+            this.ChkTC.Text = "I have Read and Agreed to";
+            this.ChkTC.UseVisualStyleBackColor = true;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label11.Location = new System.Drawing.Point(358, 160);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(184, 28);
+            this.label11.TabIndex = 12;
+            this.label11.Text = "Administrator Info:";
+            // 
+            // PaneInfo
+            // 
+            this.PaneInfo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PaneInfo.Controls.Add(this.tBLastName);
+            this.PaneInfo.Controls.Add(this.label14);
+            this.PaneInfo.Controls.Add(this.tBMidName);
+            this.PaneInfo.Controls.Add(this.label13);
+            this.PaneInfo.Controls.Add(this.tBFirstName);
+            this.PaneInfo.Controls.Add(this.label12);
+            this.PaneInfo.Location = new System.Drawing.Point(363, 178);
+            this.PaneInfo.Name = "PaneInfo";
+            this.PaneInfo.Size = new System.Drawing.Size(292, 253);
+            this.PaneInfo.TabIndex = 12;
+            // 
+            // tBLastName
+            // 
+            this.tBLastName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tBLastName.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tBLastName.ForeColor = System.Drawing.Color.Black;
+            this.tBLastName.Location = new System.Drawing.Point(16, 197);
+            this.tBLastName.MaxLength = 200;
+            this.tBLastName.Name = "tBLastName";
+            this.tBLastName.Size = new System.Drawing.Size(258, 34);
+            this.tBLastName.TabIndex = 11;
+            this.tBLastName.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tBCode_KeyUp);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label14.Location = new System.Drawing.Point(159, 166);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(113, 28);
+            this.label14.TabIndex = 10;
+            this.label14.Text = "Last Name:";
+            // 
+            // tBMidName
+            // 
+            this.tBMidName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tBMidName.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tBMidName.ForeColor = System.Drawing.Color.Black;
+            this.tBMidName.Location = new System.Drawing.Point(16, 127);
+            this.tBMidName.MaxLength = 200;
+            this.tBMidName.Name = "tBMidName";
+            this.tBMidName.Size = new System.Drawing.Size(258, 34);
+            this.tBMidName.TabIndex = 10;
+            this.tBMidName.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tBCode_KeyUp);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label13.Location = new System.Drawing.Point(134, 96);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(140, 28);
+            this.label13.TabIndex = 8;
+            this.label13.Text = "Middle Name:";
+            // 
+            // tBFirstName
+            // 
+            this.tBFirstName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tBFirstName.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tBFirstName.ForeColor = System.Drawing.Color.Black;
+            this.tBFirstName.Location = new System.Drawing.Point(16, 55);
+            this.tBFirstName.MaxLength = 200;
+            this.tBFirstName.Name = "tBFirstName";
+            this.tBFirstName.Size = new System.Drawing.Size(258, 34);
+            this.tBFirstName.TabIndex = 9;
+            this.tBFirstName.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tBCode_KeyUp);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label12.Location = new System.Drawing.Point(159, 24);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(115, 28);
+            this.label12.TabIndex = 6;
+            this.label12.Text = "First Name:";
             // 
             // label4
             // 
@@ -144,18 +344,6 @@
             this.tBCode.Size = new System.Drawing.Size(112, 34);
             this.tBCode.TabIndex = 0;
             this.tBCode.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tBCode_KeyUp);
-            // 
-            // tBStreet
-            // 
-            this.tBStreet.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tBStreet.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tBStreet.ForeColor = System.Drawing.Color.Black;
-            this.tBStreet.Location = new System.Drawing.Point(15, 338);
-            this.tBStreet.MaxLength = 200;
-            this.tBStreet.Name = "tBStreet";
-            this.tBStreet.Size = new System.Drawing.Size(257, 34);
-            this.tBStreet.TabIndex = 7;
-            this.tBStreet.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tBCode_KeyUp);
             // 
             // label2
             // 
@@ -280,6 +468,18 @@
             this.label8.TabIndex = 13;
             this.label8.Text = "ZipCode:";
             // 
+            // tBStreet
+            // 
+            this.tBStreet.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tBStreet.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tBStreet.ForeColor = System.Drawing.Color.Black;
+            this.tBStreet.Location = new System.Drawing.Point(15, 338);
+            this.tBStreet.MaxLength = 200;
+            this.tBStreet.Name = "tBStreet";
+            this.tBStreet.Size = new System.Drawing.Size(257, 34);
+            this.tBStreet.TabIndex = 7;
+            this.tBStreet.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tBCode_KeyUp);
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -354,206 +554,6 @@
             this.cBCountry.TabIndex = 3;
             this.cBCountry.SelectedIndexChanged += new System.EventHandler(this.cBCountry_SelectedIndexChanged);
             // 
-            // PaneInfo
-            // 
-            this.PaneInfo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PaneInfo.Controls.Add(this.tBLastName);
-            this.PaneInfo.Controls.Add(this.label14);
-            this.PaneInfo.Controls.Add(this.tBMidName);
-            this.PaneInfo.Controls.Add(this.label13);
-            this.PaneInfo.Controls.Add(this.tBFirstName);
-            this.PaneInfo.Controls.Add(this.label12);
-            this.PaneInfo.Location = new System.Drawing.Point(363, 178);
-            this.PaneInfo.Name = "PaneInfo";
-            this.PaneInfo.Size = new System.Drawing.Size(292, 253);
-            this.PaneInfo.TabIndex = 12;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label11.Location = new System.Drawing.Point(358, 160);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(184, 28);
-            this.label11.TabIndex = 12;
-            this.label11.Text = "Administrator Info:";
-            // 
-            // ChkTC
-            // 
-            this.ChkTC.AutoSize = true;
-            this.ChkTC.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ChkTC.Location = new System.Drawing.Point(19, 653);
-            this.ChkTC.Name = "ChkTC";
-            this.ChkTC.Size = new System.Drawing.Size(257, 29);
-            this.ChkTC.TabIndex = 14;
-            this.ChkTC.Text = "I have Read and Agreed to";
-            this.ChkTC.UseVisualStyleBackColor = true;
-            // 
-            // LnkTC
-            // 
-            this.LnkTC.AutoSize = true;
-            this.LnkTC.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LnkTC.Location = new System.Drawing.Point(265, 654);
-            this.LnkTC.Name = "LnkTC";
-            this.LnkTC.Size = new System.Drawing.Size(193, 25);
-            this.LnkTC.TabIndex = 15;
-            this.LnkTC.TabStop = true;
-            this.LnkTC.Text = "Terms and Conditions";
-            // 
-            // btnRegister
-            // 
-            this.btnRegister.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRegister.FlatAppearance.BorderColor = System.Drawing.Color.Blue;
-            this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegister.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegister.Location = new System.Drawing.Point(549, 644);
-            this.btnRegister.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(106, 45);
-            this.btnRegister.TabIndex = 16;
-            this.btnRegister.Text = "Register";
-            this.btnRegister.UseVisualStyleBackColor = true;
-            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label12.Location = new System.Drawing.Point(159, 24);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(115, 28);
-            this.label12.TabIndex = 6;
-            this.label12.Text = "First Name:";
-            // 
-            // tBFirstName
-            // 
-            this.tBFirstName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tBFirstName.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tBFirstName.ForeColor = System.Drawing.Color.Black;
-            this.tBFirstName.Location = new System.Drawing.Point(16, 55);
-            this.tBFirstName.MaxLength = 200;
-            this.tBFirstName.Name = "tBFirstName";
-            this.tBFirstName.Size = new System.Drawing.Size(258, 34);
-            this.tBFirstName.TabIndex = 9;
-            this.tBFirstName.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tBCode_KeyUp);
-            // 
-            // tBMidName
-            // 
-            this.tBMidName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tBMidName.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tBMidName.ForeColor = System.Drawing.Color.Black;
-            this.tBMidName.Location = new System.Drawing.Point(16, 127);
-            this.tBMidName.MaxLength = 200;
-            this.tBMidName.Name = "tBMidName";
-            this.tBMidName.Size = new System.Drawing.Size(258, 34);
-            this.tBMidName.TabIndex = 10;
-            this.tBMidName.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tBCode_KeyUp);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label13.Location = new System.Drawing.Point(134, 96);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(140, 28);
-            this.label13.TabIndex = 8;
-            this.label13.Text = "Middle Name:";
-            // 
-            // tBLastName
-            // 
-            this.tBLastName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tBLastName.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tBLastName.ForeColor = System.Drawing.Color.Black;
-            this.tBLastName.Location = new System.Drawing.Point(16, 197);
-            this.tBLastName.MaxLength = 200;
-            this.tBLastName.Name = "tBLastName";
-            this.tBLastName.Size = new System.Drawing.Size(258, 34);
-            this.tBLastName.TabIndex = 11;
-            this.tBLastName.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tBCode_KeyUp);
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label14.Location = new System.Drawing.Point(159, 166);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(113, 28);
-            this.label14.TabIndex = 10;
-            this.label14.Text = "Last Name:";
-            // 
-            // PaneContact
-            // 
-            this.PaneContact.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PaneContact.Controls.Add(this.tBMobile);
-            this.PaneContact.Controls.Add(this.label16);
-            this.PaneContact.Controls.Add(this.tBEmail);
-            this.PaneContact.Controls.Add(this.label17);
-            this.PaneContact.Location = new System.Drawing.Point(363, 466);
-            this.PaneContact.Name = "PaneContact";
-            this.PaneContact.Size = new System.Drawing.Size(292, 170);
-            this.PaneContact.TabIndex = 17;
-            // 
-            // tBMobile
-            // 
-            this.tBMobile.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tBMobile.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tBMobile.ForeColor = System.Drawing.Color.Black;
-            this.tBMobile.Location = new System.Drawing.Point(16, 117);
-            this.tBMobile.MaxLength = 200;
-            this.tBMobile.Name = "tBMobile";
-            this.tBMobile.Size = new System.Drawing.Size(258, 34);
-            this.tBMobile.TabIndex = 13;
-            this.tBMobile.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tBCode_KeyUp);
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label16.Location = new System.Drawing.Point(194, 83);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(80, 28);
-            this.label16.TabIndex = 8;
-            this.label16.Text = "Mobile:";
-            // 
-            // tBEmail
-            // 
-            this.tBEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tBEmail.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tBEmail.ForeColor = System.Drawing.Color.Black;
-            this.tBEmail.Location = new System.Drawing.Point(16, 45);
-            this.tBEmail.MaxLength = 200;
-            this.tBEmail.Name = "tBEmail";
-            this.tBEmail.Size = new System.Drawing.Size(258, 34);
-            this.tBEmail.TabIndex = 12;
-            this.tBEmail.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tBCode_KeyUp);
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label17.Location = new System.Drawing.Point(209, 14);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(65, 28);
-            this.label17.TabIndex = 6;
-            this.label17.Text = "Email:";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label15.Location = new System.Drawing.Point(358, 449);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(178, 28);
-            this.label15.TabIndex = 18;
-            this.label15.Text = "Company Contact:";
-            // 
             // Registration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -570,15 +570,15 @@
             this.Load += new System.EventHandler(this.Registration_Load);
             this.PaneMain.ResumeLayout(false);
             this.PaneMain.PerformLayout();
+            this.PaneContact.ResumeLayout(false);
+            this.PaneContact.PerformLayout();
+            this.PaneInfo.ResumeLayout(false);
+            this.PaneInfo.PerformLayout();
             this.PaneTop.ResumeLayout(false);
             this.PaneTop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBLogo)).EndInit();
             this.PaneAddress.ResumeLayout(false);
             this.PaneAddress.PerformLayout();
-            this.PaneInfo.ResumeLayout(false);
-            this.PaneInfo.PerformLayout();
-            this.PaneContact.ResumeLayout(false);
-            this.PaneContact.PerformLayout();
             this.ResumeLayout(false);
 
         }

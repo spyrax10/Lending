@@ -25,7 +25,7 @@ namespace Lending.Functions.Models
         public int Inactive { get; set; } = 0;
         public string Hash_Id { get; set; } = null;
 
-        public int NewUser(Company company)
+        public int NewUser(Company company, Contacts contacts)
         {
             try
             {
@@ -53,7 +53,7 @@ namespace Lending.Functions.Models
 
                         if (Id > 0)
                         {
-                            Notification.Success("Company Created...");
+                            contacts.NewContact(company, this);
                         }
                         else
                         {
