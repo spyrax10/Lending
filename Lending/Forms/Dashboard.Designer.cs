@@ -198,7 +198,7 @@
             this.optionsToolStripMenuItem});
             this.HeadStrip.Location = new System.Drawing.Point(0, 42);
             this.HeadStrip.Name = "HeadStrip";
-            this.HeadStrip.Size = new System.Drawing.Size(221, 36);
+            this.HeadStrip.Size = new System.Drawing.Size(398, 33);
             this.HeadStrip.TabIndex = 1;
             this.HeadStrip.Text = "menuStrip1";
             // 
@@ -234,6 +234,7 @@
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
             this.logOutToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.logOutToolStripMenuItem.Text = "&LogOut";
+            this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
             // optionsToolStripMenuItem
             // 
@@ -251,21 +252,21 @@
             this.ToolStripCustomer});
             this.setupToolStripMenuItem.Image = global::Lending.Properties.Resources.sov_general;
             this.setupToolStripMenuItem.Name = "setupToolStripMenuItem";
-            this.setupToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.setupToolStripMenuItem.Size = new System.Drawing.Size(180, 34);
             this.setupToolStripMenuItem.Text = "&Setup";
             // 
             // generalSetupToolStripMenuItem
             // 
             this.generalSetupToolStripMenuItem.Image = global::Lending.Properties.Resources.ios_setup;
             this.generalSetupToolStripMenuItem.Name = "generalSetupToolStripMenuItem";
-            this.generalSetupToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.generalSetupToolStripMenuItem.Size = new System.Drawing.Size(261, 34);
             this.generalSetupToolStripMenuItem.Text = "&General Setup";
             // 
             // ToolStripCustomer
             // 
             this.ToolStripCustomer.Image = global::Lending.Properties.Resources.prog_setup;
             this.ToolStripCustomer.Name = "ToolStripCustomer";
-            this.ToolStripCustomer.Size = new System.Drawing.Size(270, 34);
+            this.ToolStripCustomer.Size = new System.Drawing.Size(261, 34);
             this.ToolStripCustomer.Text = "&Customer\'s Setup";
             this.ToolStripCustomer.Click += new System.EventHandler(this.ToolStripCustomer_Click);
             // 
@@ -283,7 +284,7 @@
             this.salesReportToolStripMenuItem.Image = global::Lending.Properties.Resources.cust_saleList;
             this.salesReportToolStripMenuItem.Name = "salesReportToolStripMenuItem";
             this.salesReportToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
-            this.salesReportToolStripMenuItem.Text = "S&ales Report";
+            this.salesReportToolStripMenuItem.Text = "L&oans Report";
             // 
             // Dashboard
             // 
@@ -295,7 +296,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MainMenuStrip = this.HeadStrip;
             this.Name = "Dashboard";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Dashboard";
             this.Load += new System.EventHandler(this.Dashboard_Load);
             this.Click += new System.EventHandler(this.Dashboard_Click);

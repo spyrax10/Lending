@@ -45,7 +45,7 @@
             this.PaneMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PaneMain.Location = new System.Drawing.Point(0, 0);
             this.PaneMain.Name = "PaneMain";
-            this.PaneMain.Size = new System.Drawing.Size(1170, 372);
+            this.PaneMain.Size = new System.Drawing.Size(1114, 752);
             this.PaneMain.TabIndex = 0;
             // 
             // PaneTop
@@ -58,7 +58,7 @@
             this.PaneTop.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PaneTop.Location = new System.Drawing.Point(0, 0);
             this.PaneTop.Name = "PaneTop";
-            this.PaneTop.Size = new System.Drawing.Size(1168, 42);
+            this.PaneTop.Size = new System.Drawing.Size(1112, 42);
             this.PaneTop.TabIndex = 1;
             // 
             // BTNClose
@@ -68,7 +68,7 @@
             this.BTNClose.FlatAppearance.BorderSize = 0;
             this.BTNClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BTNClose.Image = global::Lending.Properties.Resources.mono_close;
-            this.BTNClose.Location = new System.Drawing.Point(1125, 0);
+            this.BTNClose.Location = new System.Drawing.Point(1069, 0);
             this.BTNClose.Name = "BTNClose";
             this.BTNClose.Size = new System.Drawing.Size(41, 40);
             this.BTNClose.TabIndex = 2;
@@ -101,13 +101,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1170, 372);
+            this.ClientSize = new System.Drawing.Size(1114, 752);
             this.Controls.Add(this.PaneMain);
             this.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Customer";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Customer Management";
+            this.Load += new System.EventHandler(this.Customer_Load);
             this.Click += new System.EventHandler(this.Customer_Click);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Customer_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Customer_MouseMove);

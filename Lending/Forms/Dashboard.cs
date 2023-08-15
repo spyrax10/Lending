@@ -7,9 +7,11 @@ namespace Lending.Forms
 {
     public partial class Dashboard : Form
     {
+
         public Dashboard()
         {
             InitializeComponent();
+            Location = new System.Drawing.Point(0, 0);
         }
 
         private void BTNClose_Click(object sender, EventArgs e)
@@ -47,6 +49,21 @@ namespace Lending.Forms
                     form.Hide();
                     break;
                 }
+            }
+        }
+
+        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int openFormsCount = Application.OpenForms.Count - 1;
+            if (openFormsCount > 0)
+            {
+                Notification.Invalid("Please Close the Open Forms!");
+            }
+            else
+            {
+                this.Hide();
+                Login login = new Login();
+                login.Show();
             }
         }
     }

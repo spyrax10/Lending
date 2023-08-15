@@ -13,6 +13,8 @@ namespace Lending.Forms
         public Customer()
         {
             InitializeComponent();
+            int screenWidth = Screen.PrimaryScreen.Bounds.Width;
+            Location = new Point(screenWidth - Width, 0);
         }
 
         private void Customer_Click(object sender, EventArgs e)
@@ -44,6 +46,11 @@ namespace Lending.Forms
         private void Customer_MouseUp(object sender, MouseEventArgs e)
         {
             dragging = false;
+        }
+
+        private void Customer_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }

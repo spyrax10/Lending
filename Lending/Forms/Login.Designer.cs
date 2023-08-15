@@ -38,6 +38,7 @@ namespace Lending
             this.tBPass = new System.Windows.Forms.TextBox();
             this.tBUser = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnTest = new System.Windows.Forms.Button();
             this.paneMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,6 +46,7 @@ namespace Lending
             // 
             this.paneMain.BackColor = System.Drawing.Color.White;
             this.paneMain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.paneMain.Controls.Add(this.btnTest);
             this.paneMain.Controls.Add(this.lblInfo);
             this.paneMain.Controls.Add(this.label1);
             this.paneMain.Controls.Add(this.tBPass2);
@@ -56,14 +58,14 @@ namespace Lending
             this.paneMain.Location = new System.Drawing.Point(0, 0);
             this.paneMain.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.paneMain.Name = "paneMain";
-            this.paneMain.Size = new System.Drawing.Size(386, 209);
+            this.paneMain.Size = new System.Drawing.Size(396, 273);
             this.paneMain.TabIndex = 0;
             // 
             // lblInfo
             // 
             this.lblInfo.AutoSize = true;
             this.lblInfo.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInfo.Location = new System.Drawing.Point(8, 175);
+            this.lblInfo.Location = new System.Drawing.Point(8, 191);
             this.lblInfo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblInfo.Name = "lblInfo";
             this.lblInfo.Size = new System.Drawing.Size(60, 19);
@@ -75,7 +77,7 @@ namespace Lending
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Gray;
-            this.label1.Location = new System.Drawing.Point(8, 122);
+            this.label1.Location = new System.Drawing.Point(8, 138);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(106, 27);
@@ -87,7 +89,7 @@ namespace Lending
             this.tBPass2.BackColor = System.Drawing.Color.White;
             this.tBPass2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tBPass2.ForeColor = System.Drawing.Color.Black;
-            this.tBPass2.Location = new System.Drawing.Point(136, 120);
+            this.tBPass2.Location = new System.Drawing.Point(154, 137);
             this.tBPass2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tBPass2.Name = "tBPass2";
             this.tBPass2.PasswordChar = '*';
@@ -100,7 +102,7 @@ namespace Lending
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Gray;
-            this.label3.Location = new System.Drawing.Point(8, 77);
+            this.label3.Location = new System.Drawing.Point(8, 93);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(121, 27);
@@ -112,7 +114,7 @@ namespace Lending
             this.tBPass.BackColor = System.Drawing.Color.White;
             this.tBPass.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tBPass.ForeColor = System.Drawing.Color.Black;
-            this.tBPass.Location = new System.Drawing.Point(136, 75);
+            this.tBPass.Location = new System.Drawing.Point(154, 92);
             this.tBPass.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tBPass.Name = "tBPass";
             this.tBPass.PasswordChar = '*';
@@ -124,7 +126,7 @@ namespace Lending
             this.tBUser.BackColor = System.Drawing.Color.White;
             this.tBUser.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tBUser.ForeColor = System.Drawing.Color.Black;
-            this.tBUser.Location = new System.Drawing.Point(136, 31);
+            this.tBUser.Location = new System.Drawing.Point(154, 48);
             this.tBUser.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tBUser.Name = "tBUser";
             this.tBUser.Size = new System.Drawing.Size(228, 31);
@@ -135,18 +137,32 @@ namespace Lending
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Gray;
-            this.label2.Location = new System.Drawing.Point(8, 32);
+            this.label2.Location = new System.Drawing.Point(8, 48);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(131, 27);
             this.label2.TabIndex = 29;
             this.label2.Text = "Username:";
             // 
+            // btnTest
+            // 
+            this.btnTest.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnTest.FlatAppearance.BorderColor = System.Drawing.Color.Blue;
+            this.btnTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTest.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTest.Location = new System.Drawing.Point(268, 213);
+            this.btnTest.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnTest.Name = "btnTest";
+            this.btnTest.Size = new System.Drawing.Size(114, 45);
+            this.btnTest.TabIndex = 37;
+            this.btnTest.Text = "Login";
+            this.btnTest.UseVisualStyleBackColor = true;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(386, 209);
+            this.ClientSize = new System.Drawing.Size(396, 273);
             this.Controls.Add(this.paneMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -172,5 +188,6 @@ namespace Lending
         private System.Windows.Forms.TextBox tBUser;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblInfo;
+        private System.Windows.Forms.Button btnTest;
     }
 }
