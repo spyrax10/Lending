@@ -1,6 +1,5 @@
 ﻿using Lending.Functions;
 using System;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace Lending.Forms

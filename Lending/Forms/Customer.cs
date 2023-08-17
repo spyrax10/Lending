@@ -52,5 +52,12 @@ namespace Lending.Forms
         {
             
         }
+
+        private void btnToggle_Click(object sender, EventArgs e)
+        {
+            PaneAdd.Visible = !PaneAdd.Visible;
+
+            btnToggle.Location = new Point(PaneAdd.Visible ? PaneAdd.Width : 0, btnToggle.Location.Y);
+        }
     }
 }
