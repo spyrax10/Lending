@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lending.Class;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -15,6 +16,8 @@ namespace Lending.Forms
             InitializeComponent();
             int screenWidth = Screen.PrimaryScreen.Bounds.Width;
             Location = new Point(screenWidth - Width, 0);
+            btnToggle.Location = new Point(0, btnToggle.Location.Y);
+            PaneTable.Width = PaneAdd.Visible ? 801 : PaneMain.Width - btnToggle.Width - 5;
         }
 
         private void Customer_Click(object sender, EventArgs e)
@@ -56,8 +59,10 @@ namespace Lending.Forms
         private void btnToggle_Click(object sender, EventArgs e)
         {
             PaneAdd.Visible = !PaneAdd.Visible;
-
             btnToggle.Location = new Point(PaneAdd.Visible ? PaneAdd.Width : 0, btnToggle.Location.Y);
+            Extra.clrCont(PaneAdd);
+
+            PaneTable.Width = PaneAdd.Visible ? 801 : PaneMain.Width - btnToggle.Width - 5;
         }
     }
 }

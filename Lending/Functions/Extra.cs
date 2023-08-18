@@ -293,5 +293,19 @@ namespace Lending.Class
                 Notification.Error(e.Message);            
             }
         }
+
+        public static bool isFormOpen(string name = "")
+        {
+            bool status = false;
+            foreach (Form openForm in Application.OpenForms)
+            {
+                if (openForm.Name == name)
+                {
+                    status = true;
+                    break;
+                }
+            }
+            return status;
+        }
     }
 }

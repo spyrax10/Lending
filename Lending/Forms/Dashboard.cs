@@ -1,4 +1,5 @@
-﻿using Lending.Functions;
+﻿using Lending.Class;
+using Lending.Functions;
 using System;
 using System.Windows.Forms;
 
@@ -29,9 +30,16 @@ namespace Lending.Forms
 
         private void ToolStripCustomer_Click(object sender, EventArgs e)
         {
-            Customer customer = new Customer();
-            customer.Show();
-            customer.BringToFront();
+            if (!Extra.isFormOpen("Customer"))
+            {
+                Customer customer = new Customer();
+                customer.Show();
+                customer.BringToFront();
+            }
+            else
+            {
+                Notification.Error("Form is Already Open!");
+            }
         }
 
         private void Dashboard_Click(object sender, EventArgs e)
