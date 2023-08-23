@@ -263,6 +263,16 @@ namespace Lending.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Loan_Type_32_ {
+            get {
+                object obj = ResourceManager.GetObject("Loan_Type(32)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logo_frontaccounting {
             get {
                 object obj = ResourceManager.GetObject("logo_frontaccounting", resourceCulture);

@@ -72,7 +72,7 @@ namespace Lending
             {
                 Builder.CreateAppDatabase();
 
-                if (SQL.addCountTB(ConfigurationManager.AppSettings["SQL"].ToString()))
+                if (SQL.addCountTB())
                 {
                     User_Type.GetUserType();
                     zzz_Addresses.GetPlaces();

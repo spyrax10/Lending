@@ -108,7 +108,7 @@ namespace Lending.Functions.Models
 
                         if (Id > 0)
                         {
-                            user.NewUser(company, contacts);
+                            user.NewUser(contacts, Id);
                         }
                     }
                 }

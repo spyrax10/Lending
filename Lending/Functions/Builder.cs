@@ -1,7 +1,5 @@
 ﻿using Lending.Functions;
 using System;
-using System.Configuration;
-using System.Windows.Forms;
 
 namespace Lending.Class
 {

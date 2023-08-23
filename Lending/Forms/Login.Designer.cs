@@ -31,6 +31,7 @@ namespace Lending
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.paneMain = new System.Windows.Forms.Panel();
+            this.btn_Login = new System.Windows.Forms.Button();
             this.lblInfo = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tBPass2 = new System.Windows.Forms.TextBox();
@@ -38,7 +39,6 @@ namespace Lending
             this.tBPass = new System.Windows.Forms.TextBox();
             this.tBUser = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnTest = new System.Windows.Forms.Button();
             this.paneMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,7 +46,7 @@ namespace Lending
             // 
             this.paneMain.BackColor = System.Drawing.Color.White;
             this.paneMain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.paneMain.Controls.Add(this.btnTest);
+            this.paneMain.Controls.Add(this.btn_Login);
             this.paneMain.Controls.Add(this.lblInfo);
             this.paneMain.Controls.Add(this.label1);
             this.paneMain.Controls.Add(this.tBPass2);
@@ -60,6 +60,21 @@ namespace Lending
             this.paneMain.Name = "paneMain";
             this.paneMain.Size = new System.Drawing.Size(396, 273);
             this.paneMain.TabIndex = 0;
+            // 
+            // btn_Login
+            // 
+            this.btn_Login.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Login.FlatAppearance.BorderColor = System.Drawing.Color.Blue;
+            this.btn_Login.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Login.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Login.Location = new System.Drawing.Point(268, 213);
+            this.btn_Login.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn_Login.Name = "btn_Login";
+            this.btn_Login.Size = new System.Drawing.Size(114, 45);
+            this.btn_Login.TabIndex = 37;
+            this.btn_Login.Text = "Login";
+            this.btn_Login.UseVisualStyleBackColor = true;
+            this.btn_Login.Click += new System.EventHandler(this.btn_Login_Click);
             // 
             // lblInfo
             // 
@@ -144,20 +159,6 @@ namespace Lending
             this.label2.TabIndex = 29;
             this.label2.Text = "Username:";
             // 
-            // btnTest
-            // 
-            this.btnTest.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnTest.FlatAppearance.BorderColor = System.Drawing.Color.Blue;
-            this.btnTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTest.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTest.Location = new System.Drawing.Point(268, 213);
-            this.btnTest.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnTest.Name = "btnTest";
-            this.btnTest.Size = new System.Drawing.Size(114, 45);
-            this.btnTest.TabIndex = 37;
-            this.btnTest.Text = "Login";
-            this.btnTest.UseVisualStyleBackColor = true;
-            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -188,6 +189,6 @@ namespace Lending
         private System.Windows.Forms.TextBox tBUser;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblInfo;
-        private System.Windows.Forms.Button btnTest;
+        private System.Windows.Forms.Button btn_Login;
     }
 }

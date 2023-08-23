@@ -25,7 +25,7 @@ namespace Lending.Functions.Models
         public int Inactive { get; set; } = 0;
         public string Hash_Id { get; set; } = null;
 
-        public int NewUser(Company company, Contacts contacts)
+        public int NewUser(Contacts contacts, int comp_Id = 0, bool isCompany = true)
         {
             try
             {
@@ -42,7 +42,7 @@ namespace Lending.Functions.Models
                         SELECT SCOPE_IDENTITY() AS last_inserted_id;";
 
                         cmd.Parameters.AddWithValue("date", Date);
-                        cmd.Parameters.AddWithValue("branch_id", company.Id);
+                        cmd.Parameters.AddWithValue("branch_id", comp_Id);
                         cmd.Parameters.AddWithValue("username", Username);
                         cmd.Parameters.AddWithValue("password", Password);
                         cmd.Parameters.AddWithValue("firstName", FirstName);
@@ -53,11 +53,11 @@ namespace Lending.Functions.Models
 
                         if (Id > 0)
                         {
-                            contacts.NewContact(company, this);
+                            contacts.NewContact(this, comp_Id);
                         }
                         else
                         {
-                            SQL.deleteLastInsertedId(company.Id, "Company");
+                            SQL.deleteLastInsertedId(comp_Id, "Company");
                         }
                     }
                 }
@@ -65,7 +65,7 @@ namespace Lending.Functions.Models
             catch (Exception e)
             {
                 Notification.Error(Username + " || " + e.Message);
-                SQL.deleteLastInsertedId(company.Id, "Company");
+                SQL.deleteLastInsertedId(comp_Id, "Company");
             }
 
             return Id;

@@ -300,6 +300,7 @@ namespace Lending
             this.btnCusTkeImg.TabIndex = 28;
             this.btnCusTkeImg.Text = "TAKE PHOTO";
             this.btnCusTkeImg.UseVisualStyleBackColor = true;
+            this.btnCusTkeImg.Click += new System.EventHandler(this.btnCusTkeImg_Click);
             // 
             // label9
             // 
@@ -619,7 +620,7 @@ namespace Lending
             this.pBLogo.TabIndex = 0;
             this.pBLogo.TabStop = false;
             // 
-            // Dashboard
+            // Dashboard2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -629,7 +630,7 @@ namespace Lending
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
-            this.Name = "Dashboard";
+            this.Name = "Dashboard2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.mainFrm_FormClosing);

@@ -1,5 +1,6 @@
 ﻿using Lending.Forms;
 using Lending.Functions;
+using Lending.Functions.Models;
 using System;
 using System.Data.SqlClient;
 using System.Drawing;
@@ -34,142 +35,6 @@ namespace Lending.Class
                         cmd.Parameters.AddWithValue("@orig", orig);
                         cmd.Parameters.AddWithValue("@val", val);
                         cmd.ExecuteNonQuery();
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                Notification.Error(e.Message);
-            }
-        }
-
-        public static void loadCount(ComboBox cB)
-        {
-            try
-            {
-                using (var con = SQL.getConnection())
-                {
-                    using (var cmd = con.CreateCommand())
-                    {
-                        con.Open();
-                        cmd.CommandText = "SELECT DISTINCT [Country] " +
-                            "FROM [zzz_Lending].[dbo].[countTB] " +
-                            "ORDER BY [Country] ASC";
-                        
-                        using (var dr = cmd.ExecuteReader())
-                        {
-                            while (dr.Read())
-                            {
-                                cB.Items.Add(dr["Country"].ToString());
-                                Application.DoEvents();
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                Notification.Error(e.Message);
-            }
-        }
-
-        public static void loadPro(ComboBox count, ComboBox cB)
-        {
-            try
-            {
-                cB.Text = "";
-                cB.Items.Clear();
-
-                using (var con = SQL.getConnection())
-                {
-                    using (var cmd = con.CreateCommand())
-                    {
-                        con.Open();
-                        cmd.CommandText = "SELECT DISTINCT [Province] " +
-                            "FROM [zzz_Lending].[dbo].[countTB] " +
-                            "WHERE [Country] = @count " +
-                            "ORDER BY [Province] ASC";
-                        cmd.Parameters.AddWithValue("@count", count.Text);
-
-                        using (var dr = cmd.ExecuteReader())
-                        {
-                            while (dr.Read())
-                            {
-                                cB.Items.Add(dr["Province"].ToString());
-                                Application.DoEvents();
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                Notification.Error(e.Message);
-            }
-        }
-
-        public static void loadMun(ComboBox count, ComboBox pro, ComboBox cB)
-        {
-            try
-            {
-                cB.Text = ""; cB.Items.Clear();
-
-                using (var con = SQL.getConnection())
-                {
-                    using (var cmd = con.CreateCommand())
-                    {
-                        con.Open();
-                        cmd.CommandText = cmd.CommandText = "SELECT DISTINCT [Municipality] " +
-                            "FROM [zzz_Lending].[dbo].[countTB] " +
-                            "WHERE [Country] = @count AND [Province] = @pro " +
-                            "ORDER BY [Municipality] ASC";
-                        cmd.Parameters.AddWithValue("@count", count.Text);
-                        cmd.Parameters.AddWithValue("@pro", pro.Text);
-
-                        using (var dr = cmd.ExecuteReader())
-                        {
-                            while (dr.Read())
-                            {
-                                cB.Items.Add(dr["Municipality"].ToString());
-                                Application.DoEvents();
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                Notification.Error(e.Message);
-            }
-        }
-
-        public static void loadBar(ComboBox count, ComboBox pro, ComboBox mun, ComboBox cB)
-        {
-            try
-            {
-                cB.Text = ""; cB.Items.Clear();
-
-                using (var con = SQL.getConnection())
-                {
-                    using (var cmd = con.CreateCommand())
-                    {
-                        con.Open();
-                        cmd.CommandText = cmd.CommandText = cmd.CommandText = "SELECT DISTINCT [Barangay] " +
-                            "FROM [zzz_Lending].[dbo].[countTB] " +
-                            "WHERE [Country] = @count AND [Province] = @pro AND [Municipality] = @mun " +
-                            "ORDER BY [Barangay] ASC";
-                        cmd.Parameters.AddWithValue("@count", count.Text);
-                        cmd.Parameters.AddWithValue("@pro", pro.Text);
-                        cmd.Parameters.AddWithValue("@mun", mun.Text);
-
-                        using (var dr = cmd.ExecuteReader())
-                        {
-                            while (dr.Read())
-                            {
-                                cB.Items.Add(dr["Barangay"].ToString());
-                                Application.DoEvents();
-                            }
-                        }
                     }
                 }
             }
@@ -308,7 +173,7 @@ namespace Lending.Class
         {
             try
             {
-                Extra.selImg(pB);
+                Extra.select_Img(pB);
 
                 using (var con = SQL.getConnection())
                 {
@@ -537,8 +402,10 @@ namespace Lending.Class
                                     {
                                         if (dr.Read())
                                         {
+                                            zzz_Addresses.GetPlaces();
+
                                             Dashboard ma = new Dashboard();
-                                            ma.Show(); Extra.clrCont(pane);
+                                            ma.Show(); Extra.clear_contents(pane);
                                             log.Hide(); log.ShowInTaskbar = false;
                                         }
                                         else

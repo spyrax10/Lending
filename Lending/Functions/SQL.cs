@@ -11,12 +11,12 @@ namespace Lending.Functions
 {
     public static class SQL
     {
-        public static bool addCountTB(string sql)
+        public static bool addCountTB()
         {
             bool added = false;
             try
             {
-                string path = File.ReadAllText(@"..\..\Scripts\countTB(" + sql + ").sql");
+                string path = File.ReadAllText(@"..\..\Scripts\countTB(" + SQLversion() + ").sql");
 
                 IEnumerable<string> cmd = Regex.Split(path, @"^\s*GO\s*$",
                                      RegexOptions.Multiline | RegexOptions.IgnoreCase);

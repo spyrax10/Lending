@@ -89,7 +89,7 @@ namespace Lending.Class
             }
         }
 
-        public static void selImg(PictureBox img)
+        public static void select_Img(PictureBox img)
         {
             OpenFileDialog dlg = new OpenFileDialog();
             dlg.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.tif;...";
@@ -149,7 +149,7 @@ namespace Lending.Class
             }
         }
 
-        public static void clrCont(Control comp)
+        public static void clear_contents(Control comp)
         {
             comp.Controls.OfType<TextBox>().ToList().ForEach(t => t.Clear());
             comp.Controls.OfType<ComboBox>().ToList().ForEach(t => t.Text = "");
@@ -158,7 +158,7 @@ namespace Lending.Class
             foreach (Control c in comp.Controls)
             {
                 if (c is Panel)
-                {
+                {                    
                     foreach (Control d in c.Controls)
                     {
                         if (d is TextBox || d is ComboBox)
@@ -168,7 +168,7 @@ namespace Lending.Class
                         if (d is DataGridView)
                         {
                             d.Refresh();
-                        }
+                        }                       
                     }
                 }
             }

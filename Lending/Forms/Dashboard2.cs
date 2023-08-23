@@ -1,4 +1,5 @@
 ﻿using Lending.Class;
+using Lending.Functions;
 using System;
 using System.Windows.Forms;
 
@@ -15,8 +16,8 @@ namespace Lending
         {
             btnCusReg.Text = "REGISTER";
             tBCusID.Text = "";
-            Extra.clrCont(paneCusBody);
-            Query2.loadCount(cBCusCount);
+            Extra.clear_contents(paneCusBody);
+           
             cBCusCount.SelectedIndex = 0;
             pBCusFace.Image = null;
         }
@@ -28,7 +29,7 @@ namespace Lending
 
         private void mainFrm_Load(object sender, EventArgs e)
         {
-            Query2.loadCount(cBCusCount);
+            
             cBCusCount.SelectedIndex = 0;
         }
 
@@ -39,17 +40,17 @@ namespace Lending
 
         private void cBCusCount_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Query2.loadPro(cBCusCount, cBCusPro);
+            
         }
 
         private void cBCusPro_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Query2.loadMun(cBCusCount, cBCusPro, cBCusMun);
+            
         }
 
         private void cBCusMun_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Query2.loadBar(cBCusCount, cBCusPro, cBCusMun, cBCusBar);
+           
         }
 
         private void btnCusReg_Click(object sender, EventArgs e)
@@ -96,6 +97,11 @@ namespace Lending
         private void btnCusAdd_Click(object sender, EventArgs e)
         {
             clrCusInfo();
+        }
+
+        private void btnCusTkeImg_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

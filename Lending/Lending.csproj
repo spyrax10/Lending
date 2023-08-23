@@ -171,6 +171,7 @@
     <None Include="Resources\cust_saleList.png" />
     <None Include="Resources\ios_setup.png" />
     <None Include="Resources\boot_add.png" />
+    <None Include="Resources\Loan_Type%2832%29.png" />
     <Content Include="Scripts\countTB%28SQL12%29.sql" />
     <Content Include="Scripts\countTB%28SQL19%29.sql" />
     <None Include="Resources\Button-Close-icon %2816%29.png" />

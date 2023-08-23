@@ -36,5 +36,10 @@ namespace Lending
         {
             Application.Exit();
         }
+
+        private void btn_Login_Click(object sender, EventArgs e)
+        {
+            Query2.chkLogIn(tBUser, tBPass, tBPass2, lblInfo, paneMain, this);
+        }
     }
 }

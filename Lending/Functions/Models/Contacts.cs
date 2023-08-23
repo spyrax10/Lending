@@ -66,7 +66,7 @@ namespace Lending.Functions.Models
             return exists;
         }
 
-        public int NewContact(Company company, User user)
+        public int NewContact(User user, int comp_Id = 0, bool isCompany = true)
         {
             try
             {
@@ -83,7 +83,7 @@ namespace Lending.Functions.Models
                         SELECT SCOPE_IDENTITY() AS last_inserted_id;";
 
                         cmd.Parameters.AddWithValue("date", Date);
-                        cmd.Parameters.AddWithValue("branch_id", company.Id);
+                        cmd.Parameters.AddWithValue("branch_id", comp_Id);
                         cmd.Parameters.AddWithValue("user_id", user.Id);
                         cmd.Parameters.AddWithValue("type", Type);
                         cmd.Parameters.AddWithValue("email", Email);
@@ -93,14 +93,20 @@ namespace Lending.Functions.Models
 
                         if (Id > 0)
                         {
-                            Notification.Success("Company Created...");
-                            Dashboard home = new Dashboard();
-                            home.ShowDialog();
-                            
+                            if (isCompany)
+                            {
+                                Notification.Success("Company Created...");
+                                Dashboard home = new Dashboard();
+                                home.ShowDialog();
+                            }         
+                            else
+                            {
+                                return 1;
+                            }
                         }
                         else
                         {
-                            SQL.deleteLastInsertedId(company.Id, "Company");
+                            SQL.deleteLastInsertedId(comp_Id, "Company");
                             SQL.deleteLastInsertedId(user.Id, "User");
                         }
 
@@ -111,7 +117,7 @@ namespace Lending.Functions.Models
             {
                 Notification.Error(e.Message);
 
-                SQL.deleteLastInsertedId(company.Id, "Company");
+                SQL.deleteLastInsertedId(comp_Id, "Company");
                 SQL.deleteLastInsertedId(user.Id, "User");
             }
 

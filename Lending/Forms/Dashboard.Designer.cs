@@ -51,6 +51,7 @@
             this.ToolStripCustomer = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salesReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripLoanType = new System.Windows.Forms.ToolStripMenuItem();
             this.PaneMain.SuspendLayout();
             this.PaneTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBLogo)).BeginInit();
@@ -218,21 +219,21 @@
             // 
             this.optionsToolStripMenuItem1.Image = global::Lending.Properties.Resources.prog_settings;
             this.optionsToolStripMenuItem1.Name = "optionsToolStripMenuItem1";
-            this.optionsToolStripMenuItem1.Size = new System.Drawing.Size(270, 34);
+            this.optionsToolStripMenuItem1.Size = new System.Drawing.Size(181, 34);
             this.optionsToolStripMenuItem1.Text = "&Options";
             // 
             // FileSep
             // 
             this.FileSep.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.FileSep.Name = "FileSep";
-            this.FileSep.Size = new System.Drawing.Size(267, 6);
+            this.FileSep.Size = new System.Drawing.Size(178, 6);
             // 
             // logOutToolStripMenuItem
             // 
             this.logOutToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.logOutToolStripMenuItem.Image = global::Lending.Properties.Resources.prog_logout;
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(181, 34);
             this.logOutToolStripMenuItem.Text = "&LogOut";
             this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
@@ -249,24 +250,25 @@
             // 
             this.setupToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.generalSetupToolStripMenuItem,
-            this.ToolStripCustomer});
+            this.ToolStripCustomer,
+            this.ToolStripLoanType});
             this.setupToolStripMenuItem.Image = global::Lending.Properties.Resources.sov_general;
             this.setupToolStripMenuItem.Name = "setupToolStripMenuItem";
-            this.setupToolStripMenuItem.Size = new System.Drawing.Size(180, 34);
+            this.setupToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.setupToolStripMenuItem.Text = "&Setup";
             // 
             // generalSetupToolStripMenuItem
             // 
             this.generalSetupToolStripMenuItem.Image = global::Lending.Properties.Resources.ios_setup;
             this.generalSetupToolStripMenuItem.Name = "generalSetupToolStripMenuItem";
-            this.generalSetupToolStripMenuItem.Size = new System.Drawing.Size(261, 34);
+            this.generalSetupToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.generalSetupToolStripMenuItem.Text = "&General Setup";
             // 
             // ToolStripCustomer
             // 
             this.ToolStripCustomer.Image = global::Lending.Properties.Resources.prog_setup;
             this.ToolStripCustomer.Name = "ToolStripCustomer";
-            this.ToolStripCustomer.Size = new System.Drawing.Size(261, 34);
+            this.ToolStripCustomer.Size = new System.Drawing.Size(270, 34);
             this.ToolStripCustomer.Text = "&Customer\'s Setup";
             this.ToolStripCustomer.Click += new System.EventHandler(this.ToolStripCustomer_Click);
             // 
@@ -283,8 +285,15 @@
             // 
             this.salesReportToolStripMenuItem.Image = global::Lending.Properties.Resources.cust_saleList;
             this.salesReportToolStripMenuItem.Name = "salesReportToolStripMenuItem";
-            this.salesReportToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.salesReportToolStripMenuItem.Size = new System.Drawing.Size(225, 34);
             this.salesReportToolStripMenuItem.Text = "L&oans Report";
+            // 
+            // ToolStripLoanType
+            // 
+            this.ToolStripLoanType.Image = global::Lending.Properties.Resources.Loan_Type_32_;
+            this.ToolStripLoanType.Name = "ToolStripLoanType";
+            this.ToolStripLoanType.Size = new System.Drawing.Size(270, 34);
+            this.ToolStripLoanType.Text = "&Loan Type Setup";
             // 
             // Dashboard
             // 
@@ -336,5 +345,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ToolStripMenuItem reportsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salesReportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripLoanType;
     }
 }
