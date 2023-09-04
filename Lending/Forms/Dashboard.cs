@@ -73,5 +73,19 @@ namespace Lending.Forms
                 login.Show();
             }
         }
+
+        private void ToolStripLoanType_Click(object sender, EventArgs e)
+        {
+            if (!Extra.isFormOpen("LoanType"))
+            {
+                LoanType loan = new LoanType();
+                loan.Show();
+                loan.BringToFront();
+            }
+            else
+            {
+                Notification.Error("Form is Already Open!");
+            }
+        }
     }
 }

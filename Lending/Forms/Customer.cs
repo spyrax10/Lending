@@ -1,5 +1,4 @@
 ﻿using Lending.Class;
-using Lending.Functions;
 using Lending.Functions.Models;
 using System;
 using System.Drawing;

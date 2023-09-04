@@ -49,9 +49,9 @@
             this.setupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.generalSetupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripCustomer = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripLoanType = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salesReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripLoanType = new System.Windows.Forms.ToolStripMenuItem();
             this.PaneMain.SuspendLayout();
             this.PaneTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBLogo)).BeginInit();
@@ -272,6 +272,14 @@
             this.ToolStripCustomer.Text = "&Customer\'s Setup";
             this.ToolStripCustomer.Click += new System.EventHandler(this.ToolStripCustomer_Click);
             // 
+            // ToolStripLoanType
+            // 
+            this.ToolStripLoanType.Image = global::Lending.Properties.Resources.Loan_Type_32_;
+            this.ToolStripLoanType.Name = "ToolStripLoanType";
+            this.ToolStripLoanType.Size = new System.Drawing.Size(270, 34);
+            this.ToolStripLoanType.Text = "&Loan Type Setup";
+            this.ToolStripLoanType.Click += new System.EventHandler(this.ToolStripLoanType_Click);
+            // 
             // reportsToolStripMenuItem
             // 
             this.reportsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -287,13 +295,6 @@
             this.salesReportToolStripMenuItem.Name = "salesReportToolStripMenuItem";
             this.salesReportToolStripMenuItem.Size = new System.Drawing.Size(225, 34);
             this.salesReportToolStripMenuItem.Text = "L&oans Report";
-            // 
-            // ToolStripLoanType
-            // 
-            this.ToolStripLoanType.Image = global::Lending.Properties.Resources.Loan_Type_32_;
-            this.ToolStripLoanType.Name = "ToolStripLoanType";
-            this.ToolStripLoanType.Size = new System.Drawing.Size(270, 34);
-            this.ToolStripLoanType.Text = "&Loan Type Setup";
             // 
             // Dashboard
             // 
